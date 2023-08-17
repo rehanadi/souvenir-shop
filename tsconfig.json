@@ -5,10 +5,7 @@
     "paths": { 
       "@/*": ["./*"],
       "@/components/*": ["./app/components/*"],
-      "@/styles/*": ["./app/styles/*"],
-      "@/public/*": ["./public/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/types/*": ["./lib/types/*"]
+      "@/styles/*": ["./app/styles/*"]
     },
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],

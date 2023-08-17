@@ -1,7 +1,7 @@
 import './styles/globals.scss'
 import { Poppins } from 'next/font/google'
 
-import { Providers } from '@/lib/providers'
+import { Providers } from '@/components/Providers'
 import Header from '@/components/layouts/Header'
 import Footer from '@/components/layouts/Footer'
 
