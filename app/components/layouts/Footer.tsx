@@ -1,6 +1,13 @@
+import Script from 'next/script'
+import { ToastContainer } from 'react-toastify'
+
 const Footer: React.FC = () => {
   return (
-    <div>Footer</div>
+    <>
+      <footer>Footer</footer>
+      <Script src='./assets/js/bootstrap.bundle.min.js' />
+      <ToastContainer />
+    </>
   )
 }
 

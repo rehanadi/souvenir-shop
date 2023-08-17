@@ -1,7 +1,7 @@
 import './styles/globals.scss'
 import { Poppins } from 'next/font/google'
+
 import { Providers } from '@/lib/providers'
-import { ToastContainer } from 'react-toastify'
 import Header from '@/components/layouts/Header'
 import Footer from '@/components/layouts/Footer'
 
@@ -22,7 +22,6 @@ export default function RootLayout(props: React.PropsWithChildren) {
           <Header />
           <main>{props.children}</main>
           <Footer />
-          <ToastContainer />
         </body>
       </html>
     </Providers>
