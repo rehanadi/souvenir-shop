@@ -12,7 +12,7 @@ const ProductList: React.FC = () => {
   return (
     <div className='row'>
       {products?.map((product: Product) => (
-        <ProductItem key={product.id} productId={product.id} />
+        <ProductItem key={product.id} product={product} />
       ))}
     </div>
   )

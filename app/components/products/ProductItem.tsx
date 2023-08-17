@@ -1,15 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import Image from "next/image"
 import noImage from '@/public/assets/images/no-img.png'
 import styles from '@/styles/products.module.scss'
-import { useGetProductByIdQuery } from '@/lib/redux'
-import type { GetProductByIdQuery } from '@/lib/redux'
+import { Product } from '@/lib/types'
 
-const ProductItem: React.FC<{ productId: string }> = ({ productId }) => {
-  const { data, isLoading } = useGetProductByIdQuery<GetProductByIdQuery>(productId)
-  const { product } = data || {}
-
-  if (isLoading) return
+const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
   
   return (
     <div className="col-12 col-sm-6 col-lg-4 pb-5">
