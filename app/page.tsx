@@ -5,7 +5,3 @@ export default function IndexPage() {
     </>
   )
 }
-
-export const metadata = {
-  title: 'Souvenir Shop'
-}
