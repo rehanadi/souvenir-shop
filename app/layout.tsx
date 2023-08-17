@@ -2,8 +2,8 @@
 import { Providers } from '@/lib/providers'
 
 /* Instruments */
-// import styles from './styles/layout.module.css'
-import './styles/globals.css'
+// import styles from './styles/layout.module.scss'
+import './styles/globals.scss'
 
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
