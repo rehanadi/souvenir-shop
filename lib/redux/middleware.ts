@@ -1,4 +1,3 @@
-/* Core */
 import { createLogger } from 'redux-logger'
 
 const middleware = [
