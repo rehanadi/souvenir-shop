@@ -1,3 +1,17 @@
 .productTitle {
-  height: 3rem;
+  min-height: 3rem;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+.rating svg {
+  color: #f8e825;
+}
+
+.ratingText {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-left: 0.5rem;
 }

@@ -6,7 +6,7 @@ import Footer from '@/components/layouts/Footer'
 import { Site } from '@/lib/types'
 
 const poppins = Poppins({
-  weight: ['400', '700'],
+  weight: ['300', '400', '600', '700'],
   subsets: ['latin']
 })
 

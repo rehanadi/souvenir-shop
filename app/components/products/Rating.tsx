@@ -1,8 +1,58 @@
-type RatingProps = React.FC<{ rating: number, text?: string }>
+import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'
+import styles from '@/styles/products.module.scss'
 
-const Rating: RatingProps = ({ rating, text }) => {
+type RatingProps = React.FC<{ value: number, text?: string }>
+
+const Rating: RatingProps = ({ value, text }) => {
   return (
-    <div>Rating</div>
+    <div className={styles.rating} title={`Rating ${value} of 5`}>
+      <span>
+        {value >= 1 ? (
+          <FaStar />
+        ) : value >= 0.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
+      </span>
+      <span>
+        {value >= 2 ? (
+          <FaStar />
+        ) : value >= 1.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
+      </span>
+      <span>
+        {value >= 3 ? (
+          <FaStar />
+        ) : value >= 2.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
+      </span>
+      <span>
+        {value >= 4 ? (
+          <FaStar />
+        ) : value >= 3.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
+      </span>
+      <span>
+        {value >= 5 ? (
+          <FaStar />
+        ) : value >= 4.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
+      </span>
+      <span className={styles.ratingText}>{text && text}</span>
+    </div>
   )
 }
 

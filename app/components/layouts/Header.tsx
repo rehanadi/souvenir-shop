@@ -1,3 +1,4 @@
+import { FaShopify } from 'react-icons/fa'
 import Link from "next/link"
 import { Site } from '@/lib/types'
 import styles from '@/styles/layout.module.scss'
@@ -5,9 +6,11 @@ import styles from '@/styles/layout.module.scss'
 const Header: React.FC = () => {
   return (
     <header>
-      <nav className='navbar navbar-expand-lg bg-body-tertiary'>
+      <nav className='navbar navbar-expand-lg bg-success' data-bs-theme="dark">
         <div className='container'>
-          <Link className={`navbar-brand ${styles.headerLogo}`} href='/'>{Site.title}</Link>
+          <Link className={`navbar-brand ${styles.headerLogo}`} href='/'>
+            <span style={{ marginRight: '.2rem' }}><FaShopify /></span> {Site.title}
+          </Link>
           <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon'></span>
           </button>

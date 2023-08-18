@@ -7,12 +7,11 @@ import {
 
 import { reducer } from './rootReducer'
 import { middleware } from './middleware'
-import { apiSlice } from './slices'
 
 export const reduxStore = configureStore({
   reducer,
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(apiSlice.middleware)
+    return getDefaultMiddleware().concat(middleware)
   },
 })
 
