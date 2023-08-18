@@ -8,6 +8,7 @@ import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 import Rating from '@/components/products/Rating'
+import styles from '@/styles/products.module.scss'
 
 type ProductPageProps = React.FC<{ params: { slug: string } }>
 
@@ -67,7 +68,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
             <li className='list-group-item'>
               <div className='d-grid gap-2'>
                 <button className='btn btn-success' type='button'>
-                  <span style={{ marginRight: '.5rem' }}><FaCartPlus /></span> Add to Cart
+                  <span className={styles.cartIcon}><FaCartPlus /></span> Add to Cart
                 </button>
               </div>
             </li>
