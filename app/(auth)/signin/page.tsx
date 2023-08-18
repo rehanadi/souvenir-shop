@@ -1,6 +1,7 @@
 import Alert from "@/components/ui/Alert"
-import GoogleSignInButton from "@/components/auth/GoogleSignInButton"
 import EmailSignInForm from "@/components/auth/EmailSignInForm"
+import GoogleSignInButton from "@/components/auth/GoogleSignInButton"
+import FacebookSignInButton from "@/components/auth/FacebookSignInButton"
 import { authErrorMessages } from "@/config/constants"
 
 type SignInPageProps = React.FC<{ searchParams: { callbackUrl?: string, error?: string } }>
@@ -27,6 +28,7 @@ const SignInPage: SignInPageProps = ({ searchParams }) => {
         <div className='card-text pb-2 text-center'>
           <div className='d-grid gap-2'>
             <GoogleSignInButton callbackUrl={callbackUrl} />
+            <FacebookSignInButton callbackUrl={callbackUrl} />
           </div>
         </div>
       </div>

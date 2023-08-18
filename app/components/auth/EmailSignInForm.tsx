@@ -1,7 +1,9 @@
 'use client'
 
 // import { signIn } from 'next-auth/react'
+import { FaRegEnvelope } from 'react-icons/fa'
 import { toast } from 'react-toastify'
+import styles from '@/styles/layout.module.scss'
 
 type EmailSignInFormProps = React.FC<{ callbackUrl?: string }>
 
@@ -32,7 +34,9 @@ const EmailSignInForm: EmailSignInFormProps = ({ callbackUrl }) => {
         <input type='password' className='form-control' id='password' name='password' />
       </div>
       <div className='d-grid gap-2'>
-        <button type='submit' className='btn btn-success'>Continue with Email</button>
+        <button type='submit' className='btn btn-success'>
+          <span className={styles.btnIcon}><FaRegEnvelope /></span> Continue with Email
+        </button>
       </div>
     </form>
   )
