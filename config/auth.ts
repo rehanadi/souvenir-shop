@@ -7,5 +7,8 @@ export const authOptions = {
       clientId: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET
     })
-  ]
+  ],
+  pages: {
+    signIn: '/signin'
+  }
 }

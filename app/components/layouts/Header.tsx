@@ -2,7 +2,7 @@ import { FaShopify } from 'react-icons/fa'
 import Link from "next/link"
 import { Site } from '@/lib/types'
 import styles from '@/styles/layout.module.scss'
-import SignInButton from '@/components/ui/SignInButton'
+import SignInButton from '@/components/auth/SignInButton'
 
 const Header: React.FC = () => {
   return (
