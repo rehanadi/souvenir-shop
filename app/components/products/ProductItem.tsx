@@ -6,12 +6,13 @@ import noImage from '@/public/assets/images/no-img.png'
 import styles from '@/styles/products.module.scss'
 import { Product } from '@/lib/types'
 
-const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
-  
+type ProductItemProps = React.FC<{ product: Product }>
+
+const ProductItem: ProductItemProps = ({ product }) => {
   return (
     <div className="col-12 col-sm-6 col-lg-4 pb-5">
       <div className='card' style={{'width': '18rem'}}>
-        <Link href={`/products/${product?.id}`}>
+        <Link href={`/products/${product?.slug}`}>
           <Image 
             src={product?.image || noImage} 
             className='card-img-top' 
@@ -21,7 +22,7 @@ const ProductItem: React.FC<{ product: Product }> = ({ product }) => {
           />
         </Link>
         <div className='card-body'>
-          <Link href={`/products/${product?.id}`}>
+          <Link href={`/products/${product?.slug}`}>
             <h5 className={`${styles.productTitle} card-title`}>{product?.name}</h5>
           </Link>
           <p className='card-text'>${product?.price}</p>
