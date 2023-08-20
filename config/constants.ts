@@ -1,13 +1,14 @@
-import type { ObjectInterface } from '@/lib/types'
+import type { ObjectKeyValue } from '@/lib/types'
 
 export const BASE_URL: string = ''
 export const PRODUCTS_URL: string = '/api/products'
+export const USERS_URL: string = '/api/users'
 export const REVALIDATE_TIMES: number = 10
 
 export const site = {
   title: 'Souvenir Shop',
   description: 'Best store for gifts and souvenirs'
-} as ObjectInterface
+} as ObjectKeyValue
 
 export const authErrorMessages = {
   Signin: 'Try signing in with a different account.',
@@ -23,4 +24,4 @@ export const authErrorMessages = {
     'Sign in failed. Check the details you provided are correct.',
   SessionRequired: 'Please sign in to access this page.',
   default: 'Unable to sign in.'
-} as ObjectInterface
+} as ObjectKeyValue

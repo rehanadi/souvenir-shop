@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <>
       <footer className='py-3'>
-        <div className="container">&copy; {site.title} - 2023</div>
+        <div className="container">&copy; {site.title} - {new Date().getFullYear()}</div>
       </footer>
       <Script src='/assets/js/bootstrap.bundle.min.js' />
       <ToastContainer />

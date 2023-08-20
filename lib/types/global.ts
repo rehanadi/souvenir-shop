@@ -1,3 +1,3 @@
-export interface ObjectInterface {
+export interface ObjectKeyValue {
   [key: string]: string
 }
