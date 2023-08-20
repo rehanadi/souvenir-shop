@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google'
 import { Providers } from '@/components/Providers'
 import Header from '@/components/layouts/Header'
 import Footer from '@/components/layouts/Footer'
-import { Site } from '@/lib/types'
+import { site } from '@/config/constants'
 
 const poppins = Poppins({
   weight: ['300', '400', '600', '700'],
@@ -11,8 +11,8 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: Site.title,
-  description: Site.description
+  title: site.title,
+  description: site.description
 }
 
 export default function RootLayout(props: React.PropsWithChildren) {

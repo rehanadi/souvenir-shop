@@ -1,4 +1,6 @@
 export * from './products'
 export * from './redux'
-export * from './site'
-export * from './auth'
+
+export interface ObjectInterface {
+  [key: string]: string
+}
