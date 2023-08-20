@@ -1,4 +1,4 @@
 export * from './products'
-export * from './tagTypes'
+export * from './redux'
 export * from './site'
 export * from './auth'
