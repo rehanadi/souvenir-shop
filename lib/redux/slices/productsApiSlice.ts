@@ -1,4 +1,4 @@
-import { apiSlice } from "../apiSlice";
+import { apiSlice } from "./apiSlice";
 import { PRODUCTS_URL, REVALIDATE_TIMES } from "@/config/constants";
 import { TagTypes } from "@/lib/types";
 
