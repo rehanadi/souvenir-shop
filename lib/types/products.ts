@@ -1,5 +1,5 @@
-export interface Product {
-  id: string
+export type Product = {
+  readonly id: string
   name: string
   slug: string 
   image?: string

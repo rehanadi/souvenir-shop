@@ -1,13 +1,13 @@
 import Link from "next/link"
 
-interface BreadcumbItem {
+type BreadcumbItems = {
   name: string
   url?: string
-}
+}[]
 
-type BreadcumbItems = BreadcumbItem[]
+type BreadcrumbProps = React.FC<{ items: BreadcumbItems }> 
 
-const Breadcrumb: React.FC<{ items: BreadcumbItems }> = ({ items }) => {
+const Breadcrumb: BreadcrumbProps = ({ items = [] }) => {
   return (
     <nav aria-label='breadcrumb' className="py-3">
       <ol className='breadcrumb'>
