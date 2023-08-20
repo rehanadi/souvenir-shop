@@ -8,7 +8,10 @@ type GoogleSignInButtonProps = React.FC<{ callbackUrl?: string }>
 
 const GoogleSignInButton: GoogleSignInButtonProps = ({ callbackUrl }) => {
   return (
-    <button className='btn btn-danger' onClick={() => signIn('google', { callbackUrl })}>
+    <button 
+      className='btn btn-danger' 
+      onClick={() => signIn('google', { callbackUrl })}
+    >
       <span className={styles.btnIcon}><FaGoogle /></span> Continue with Google
     </button>
   )
