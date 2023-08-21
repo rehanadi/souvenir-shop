@@ -4,12 +4,19 @@ export type Product = {
   slug: string 
   image?: string
   description?: string
-  brand?: string
-  category?: string
   price: number
-  countInStock: number
-  rating: number
-  numReviews: number
+  isUseStock?: boolean
+  baseStock?: boolean
+  usedStock?: boolean
+  isUseStock?: boolean
+  remainStock?: boolean
+  rating?: number
+  reviewsCount?: number
+  isActive?: boolean
+  createdBy?: string
+  createdAt?: datetime
+  updatedBy?: string
+  updatedAt?: datetime
 }
 
 export type Products = Product[]

@@ -3,7 +3,7 @@ import styles from '@/styles/products.module.scss'
 
 type RatingProps = React.FC<{ value: number, text?: string }>
 
-const Rating: RatingProps = ({ value, text }) => {
+const Rating: RatingProps = ({ value = 0, text }) => {
   return (
     <div className={styles.rating} title={`Rating ${value} of 5`}>
       <span>

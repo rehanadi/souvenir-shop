@@ -46,8 +46,8 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
         <div className="col-5">
           <Image 
             src={product?.image || noImage} 
-            width={350} 
-            height={350} 
+            width={400} 
+            height={400} 
             alt={product?.name} 
           />
         </div>
@@ -57,11 +57,11 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
             <li className='list-group-item'>
               <Rating
                 value={product?.rating}
-                text={`${product?.numReviews} reviews`}
+                text={`${product?.reviewsCount} reviews`}
               />
             </li>
             <li className='list-group-item'>{product?.description}</li>
-            <li className='list-group-item mt-2'><h3>${product.price}</h3></li>
+            <li className='list-group-item mt-2'><h3>Rp{product.price}</h3></li>
           </ul>
           <ul className='list-group list-group-flush mt-4'>
             <li className='list-group-item'>

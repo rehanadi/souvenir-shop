@@ -9,14 +9,14 @@ type ProductItemProps = React.FC<{ product: Product }>
 
 const ProductItem: ProductItemProps = ({ product }) => {
   return (
-    <div className='card' style={{'width': '18rem'}}>
+    <div className='card' >
       <Link href={`/products/${product?.slug}`}>
         <Image 
           src={product?.image || noImage} 
           className='card-img-top' 
           alt={product?.name}
-          width={300}
-          height={200}
+          width={250}
+          height={250}
         />
       </Link>
       <div className='card-body'>
@@ -26,7 +26,7 @@ const ProductItem: ProductItemProps = ({ product }) => {
         <div className='card-text mt-1'>
           <Rating value={product?.rating} />
         </div>
-        <div className='card-text mt-2'>${product?.price}</div>
+        <div className='card-text mt-2'>Rp{product?.price}</div>
       </div>
     </div>
   )
