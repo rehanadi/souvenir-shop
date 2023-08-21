@@ -6,7 +6,7 @@ import Footer from '@/app/components/layout/Footer'
 import { site } from '@/config/site'
 
 const poppins = Poppins({
-  weight: ['300', '400', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin']
 })
 

@@ -9,7 +9,7 @@ const ProductsPage: React.FC = () => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <ProductList />
+      <ProductList col={3} />
     </>
   )
 }

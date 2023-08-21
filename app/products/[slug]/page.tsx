@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb"
 import Rating from '@/components/products/Rating'
 import CartButton from "@/components/cart/CartButton"
 import type { BreadcumbItems } from "@/lib/types"
+import { formatPrice } from "@/lib/utils/products"
 
 type ProductPageProps = React.FC<{ params: { slug: string } }>
 
@@ -61,7 +62,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
               />
             </li>
             <li className='list-group-item'>{product?.description}</li>
-            <li className='list-group-item mt-2'><h3>Rp{product.price}</h3></li>
+            <li className='list-group-item mt-2'><h3>Rp{formatPrice(product?.price)}</h3></li>
           </ul>
           <ul className='list-group list-group-flush mt-4'>
             <li className='list-group-item'>

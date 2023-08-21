@@ -7,7 +7,7 @@ export default function IndexPage() {
     <>
       <h1 className="py-5 text-center">Featured Products</h1>
       <Suspense fallback={<Spinner />}>
-        <ProductList />
+        <ProductList limit={8} />
       </Suspense>
     </>
   )
