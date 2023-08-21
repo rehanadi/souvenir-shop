@@ -1,6 +1,5 @@
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
-import type { Collection } from '@/lib/types'
 
 export const authOptions = {
   providers: [
@@ -18,6 +17,10 @@ export const authOptions = {
   }
 }
 
+type AuthErrorMessages = {
+  [key: string]: string
+}
+
 export const authErrorMessages = {
   Signin: 'Try signing in with a different account.',
   OAuthSignin: 'Try signing in with a different account.',
@@ -32,4 +35,4 @@ export const authErrorMessages = {
     'Sign in failed. Check the details you provided are correct.',
   SessionRequired: 'Please sign in to access this page.',
   default: 'Unable to sign in.'
-} as Collection
+} as AuthErrorMessages

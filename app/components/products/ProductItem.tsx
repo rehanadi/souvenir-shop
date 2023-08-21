@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from "next/image"
 import noImage from '@/public/assets/images/no-img.png'
 import Rating from '@/components/products/Rating'
-import { Product } from '@/lib/types'
+import type { Product } from '@prisma/client'
 import { formatPrice } from '@/lib/utils/products'
 import styles from '@/styles/products.module.scss'
 

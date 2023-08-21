@@ -11,6 +11,10 @@ import CartButton from "@/components/cart/CartButton"
 import type { BreadcumbItems } from "@/lib/types"
 import { formatPrice } from "@/lib/utils/products"
 
+export const metadata = {
+  title: 'Products'
+}
+
 type ProductPageProps = React.FC<{ params: { slug: string } }>
 
 const ProductPage: ProductPageProps = ({ params: { slug } }) => {

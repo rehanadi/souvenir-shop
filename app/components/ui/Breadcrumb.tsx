@@ -1,9 +1,5 @@
 import Link from "next/link"
-
-type BreadcumbItems = {
-  name: string
-  url?: string
-}[]
+import type { BreadcumbItems } from "@/lib/types"
 
 type BreadcrumbProps = React.FC<{ items: BreadcumbItems }> 
 

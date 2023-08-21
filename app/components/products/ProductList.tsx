@@ -2,7 +2,7 @@
 
 import ProductItem from './ProductItem'
 import { useGetProductsQuery } from '@/lib/redux'
-import type { Product } from '@/lib/types'
+import type { Product } from '@prisma/client'
 
 type ProductListProps = React.FC<{ limit?: number, col?: number }>
 

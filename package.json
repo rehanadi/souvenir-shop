@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "data:migrate": "prisma migrate dev --name migrate",
-    "data:seed": "prisma db seed"
+    "data:seed": "prisma db seed",
+    "data:generate": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
