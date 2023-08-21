@@ -1,8 +1,9 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import Image from "next/image"
 import noImage from '@/public/assets/images/no-img.png'
-import { useGetProductBySlugQuery } from "@/lib/redux"
+import { useDispatch, useGetProductBySlugQuery, addToCart } from "@/lib/redux"
 import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"
 import Breadcrumb from "@/components/ui/Breadcrumb"
@@ -20,6 +21,9 @@ type ProductPageProps = React.FC<{ params: { slug: string } }>
 const ProductPage: ProductPageProps = ({ params: { slug } }) => {
   const { data, isLoading, isError, isSuccess } = useGetProductBySlugQuery(slug)
   const { product } = data || {}
+
+  const router = useRouter()
+  const dispatch = useDispatch()
 
   if (isLoading) return <Spinner />
   if (isError) return <Alert />
@@ -42,6 +46,11 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
         name: product?.name
       })
     }
+  }
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...product, qty: 1 }))
+    router.push('/cart')
   }
 
   return (
@@ -71,7 +80,10 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
           <ul className='list-group list-group-flush mt-4'>
             <li className='list-group-item'>
               <div className='d-grid gap-2'>
-                <CartButton />
+                <CartButton 
+                  disabled={product?.remainStock === 0} 
+                  onClick={handleAddToCart} 
+                />
               </div>
             </li>
           </ul>
