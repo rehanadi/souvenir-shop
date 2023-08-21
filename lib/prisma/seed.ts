@@ -23,8 +23,8 @@ const seedCategories = async () => {
   console.log('--- Start seeding categories data ---')
 
   await prisma.category.deleteMany()
-  categories.map(category => {
-    prisma.category.create({
+  for (const category of categories) {
+    await prisma.category.create({
       data: {
         name: category.name,
         slug: category.slug,
@@ -35,9 +35,9 @@ const seedCategories = async () => {
         }
       }
     })
-    
+
     console.log('Created category', category.name)
-  })
+  }
   
   console.log('Seeding categories data finished')
 }
@@ -46,8 +46,8 @@ const seedProducts = async () => {
   console.log('--- Start seeding products data ---')
 
   await prisma.product.deleteMany()
-  products.map(product => {
-    prisma.product.create({
+  for (const product of products) {
+    await prisma.product.create({
       data: {
         name: product.name,
         slug: product.slug,
@@ -71,7 +71,7 @@ const seedProducts = async () => {
     })
 
     console.log('Created product', product.name)
-  })
+  }
   
   console.log('Seeding products data finished')
 }
