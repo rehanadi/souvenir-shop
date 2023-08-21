@@ -1,3 +1,3 @@
-export type ObjectKeyValue = {
+export type Collection = {
   [key: string]: string
 }

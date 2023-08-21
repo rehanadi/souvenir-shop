@@ -2,7 +2,7 @@ import Alert from "@/components/ui/Alert"
 import EmailSignInForm from "@/components/auth/EmailSignInForm"
 import GoogleSignInButton from "@/components/auth/GoogleSignInButton"
 import FacebookSignInButton from "@/components/auth/FacebookSignInButton"
-import { authErrorMessages } from "@/config/constants"
+import { authErrorMessages } from "@/config/auth"
 
 type SignInPageProps = React.FC<{ searchParams: { callbackUrl?: string, error?: string } }>
 

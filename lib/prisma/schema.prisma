@@ -11,8 +11,8 @@ datasource db {
 }
 
 model Account {
-  id                 Int     @id @default(autoincrement())
-  userId             Int     @map("user_id")
+  id                 String  @id @default(uuid())
+  userId             String  @map("user_id")
   type               String
   provider           String
   providerAccountId  String  @map("provider_account_id")
@@ -33,9 +33,9 @@ model Account {
 }
 
 model Session {
-  id           Int      @id @default(autoincrement())
+  id           String   @id @default(uuid())
   sessionToken String   @unique @map("session_token")
-  userId       Int      @map("user_id")
+  userId       String   @map("user_id")
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -43,15 +43,20 @@ model Session {
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime? @map("email_verified")
-  image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  accounts      Account[]
-  sessions      Session[]
+  id                String     @id @default(uuid())
+  name              String?
+  email             String?    @unique
+  emailVerified     DateTime?  @map("email_verified")
+  image             String?
+  isAdmin           Boolean    @default(false)
+  createdAt         DateTime   @default(now()) @map(name: "created_at")
+  updatedAt         DateTime   @updatedAt @map(name: "updated_at")
+  accounts          Account[]
+  sessions          Session[]
+  createdProducts   Product[]  @relation("CreatedProducts")
+  updatedProducts   Product[]  @relation("UpdatedProducts")
+  createdCategories Category[] @relation("CreatedCategories")
+  updatedCategories Category[] @relation("UpdatedCategories")
 
   @@map(name: "users")
 }
@@ -63,4 +68,46 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Product {
+  id            String     @id @default(uuid())
+  name          String
+  slug          String     @unique
+  image         String?
+  description   String?
+  price         Float      @default(0)
+  isUseStock    Boolean    @default(false) @map(name: "is_use_stock")
+  baseStock     Float      @default(0) @map(name: "base_stock")
+  usedStock     Float      @default(0) @map(name: "used_stock")
+  remainStock   Float      @default(0) @map(name: "remain_stock")
+  rating        Float      @default(0)
+  reviewsCount  Float      @default(0) @map(name: "reviews_count")
+  isActive      Boolean    @default(true) @map(name: "is_active")
+  createdBy     String?    @map(name: "created_by")
+  createdAt     DateTime   @default(now()) @map(name: "created_at")
+  updatedBy     String?    @map(name: "updated_by")
+  updatedAt     DateTime   @updatedAt @map(name: "updated_at")
+  createdByUser User?      @relation("CreatedProducts", fields: [createdBy], references: [id])
+  updatedByUser User?      @relation("UpdatedProducts", fields: [updatedBy], references: [id])
+  categories    Category[]
+
+  @@index([slug])
+  @@map(name: "products")
+}
+
+model Category {
+  id            String    @id @default(uuid())
+  name          String
+  slug          String    @unique
+  createdBy     String?   @map(name: "created_by")
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedBy     String?   @map(name: "updated_by")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  createdByUser User?     @relation("CreatedCategories", fields: [createdBy], references: [id])
+  updatedByUser User?     @relation("UpdatedCategories", fields: [updatedBy], references: [id])
+  products      Product[]
+
+  @@index([slug])
+  @@map(name: "categories")
 }

@@ -1,0 +1,235 @@
+[{
+  "name": "Pouch Tenun",
+  "slug": "pouch-tenun",
+  "image": "/assets/images/pouch-tenun.jpg",
+  "description": "Tenun Pringgasela dibuat oleh Lebae Nursini masih tersimpan sebagai pusaka leluhur Desa Pringgasela yang disebut Reragian. Tenun Pringgasela ini dibuat dengan menggunakan alat tenun tradisional gedogan dengan bermodalkan bahan alami yaitu batik benang dan warnanya berasal dari bagian tumbuhan seperti akar, batang kayu, dan daun.",
+  "price": 45000,
+  "isUseStock": true,
+  "baseStock": 5,
+  "categorySlug": "dompet-wanita"
+}, {
+  "name": "Aloja Jus Aloevera",
+  "slug": "aloja-jus-aloevera",
+  "image": "/assets/images/aloja-jus.jpg",
+  "description": "Jus yang terbuat dari daging lidah buaya.<br />Komposisi : Daging lidah buaya, air, gula pasir, asam citrat, dan natrium benzoat<br /><br />Berat bersih : 250ml<br /><br />Manfaat lidah buaya :<br />1. Sebagau detoks atau pembuang racun<br />2. Membantu menurunkan berat badan<br />3. Penambah energi<br />4. Meningkatkan kesehatan gigi dan mulut<br />5. Menjaga kesehatan kulit dan rambut",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 15,
+  "categorySlug": "jus-sirup"
+}, {
+  "name": "Selendang Tenun Sintetis",
+  "slug": "selendang-tenun-sintetis",
+  "image": "/assets/images/sintetis.jpg",
+  "description": "Tenun Pringgasela dibuat oleh Lebae Nursini masih tersimpan sebagai pusaka leluhur Desa Pringgasela yang disebut Reragian. Tenun Pringgasela ini dibuat dengan menggunakan alat tenun tradisional gedogan dengan bermodalkan bahan alami yaitu batik benang dan warnanya berasal dari bagian tumbuhan seperti akar, batang kayu, dan daun.",
+  "price": 114000,
+  "isUseStock": true,
+  "baseStock": 5,
+  "categorySlug": "kain-tenun"
+}, {
+  "name": "Masker Tenun Lombok",
+  "slug": "masker-tenun-lombok",
+  "image": "/assets/images/masker-tenun.jpg",
+  "description": "Masker Tenun Asli Lombok",
+  "price": 21000,
+  "isUseStock": true,
+  "baseStock": 10,
+  "categorySlug": "kain-tenun"
+}, {
+  "name": "Kekait Brown Sugar",
+  "slug": "kekait-brown-sugar",
+  "image": "/assets/images/kekait.jpg",
+  "description": "Gula merah yang diolah menjadi bubuk dengan rasa yang enak. Cocok untuk tambahan minumanmu!",
+  "price": 18000,
+  "isUseStock": true,
+  "baseStock": 15,
+  "categorySlug": "kebutuhan-memasak"
+}, {
+  "name": "Kembang Goyang",
+  "slug": "kembang-goyang",
+  "image": "/assets/images/kembang-goyang.jpg",
+  "description": "Kembang goyang merupakan makanan tradisional yang bercita rasa manis gurih.<br /><br />Berat bersih : 80gr<br /><br />UMKM ASE merupakan UMKM yg berada di Desa Katongan, Gunungkidul, Daerah Istimewa Yogyakarta. UMKM ini berdiri pada tahun 2019, terdiri dari 19 orang anggota dengan berbagai macam produk yang dibuat. UMKM ASE mulai bergabung dengan HI pada tahun 2020.<br /><br />Produk dari UMKM ASE diantaranya stik buah, stik sayur, dodol, aneka peyek, aneka minuman, dan apem.<br />Adapun produk unggulan dari UMKM ini adalah stik buah dan sayur, yang merupakan makanan sehat namun bisa dijadikan cemilan sehari-hari.",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "keripik-kerupuk"
+}, {
+  "name": "Keripik Pangsit",
+  "slug": "keripik-pangsit",
+  "image": "/assets/images/keripik-pangsit.jpg",
+  "description": "Keripik pangsit yang cocok menemani kegiatanmu!<br /><br />Berat bersih : 80gr<br /><br />UMKM ASE merupakan UMKM yg berada di Desa Katongan, Gunungkidul, Daerah Istimewa Yogyakarta. UMKM ini berdiri pada tahun 2019, terdiri dari 19 orang anggota dengan berbagai macam produk yang dibuat. UMKM ASE mulai bergabung dengan HI pada tahun 2020.<br /><br />Produk dari UMKM ASE diantaranya stik buah, stik sayur, dodol, aneka peyek, aneka minuman, dan apem.<br />Adapun produk unggulan dari UMKM ini adalah stik buah dan sayur, yang merupakan makanan sehat namun bisa dijadikan cemilan sehari-hari.",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "keripik-kerupuk"
+}, {
+  "name": "Stik Kedas",
+  "slug": "stik-kedas",
+  "image": "/assets/images/stik-kedas.jpg",
+  "description": "Keripik dan stik yang berasal dari Sirnajaya, Bogor. Memiliki cita rasa yang gurih dan cocok menjadi cemilan sehari-harimu!",
+  "price": 10000,
+  "isUseStock": true,
+  "baseStock": 25,
+  "categorySlug": "keripik-kerupuk"
+}, {
+  "name": "Stik Buah dan Sayur",
+  "slug": "stik-buah-dan-sayur",
+  "image": "/assets/images/",
+  "description": "Terdiri dari 4 macam stik :<br />1. Stik Sawi<br />2. Stik Buah Naga<br />3. Stik Seledri<br />4. Stik Jahe<br /><br />Berat bersih : 80gr<br /><br />UMKM ASE merupakan UMKM yg berada di Desa Katongan, Gunungkidul, Daerah Istimewa Yogyakarta. UMKM ini berdiri pada tahun 2019, terdiri dari 19 orang anggota dengan berbagai macam produk yang dibuat. UMKM ASE mulai bergabung dengan HI pada tahun 2020.<br /><br />Produk dari UMKM ASE diantaranya stik buah, stik sayur, dodol, aneka peyek, aneka minuman, dan apem.<br />Adapun produk unggulan dari UMKM ini adalah stik buah dan sayur, yang merupakan makanan sehat namun bisa dijadikan cemilan sehari-hari.",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "keripik-kerupuk"
+}, {
+  "name": "Kripik Peyek",
+  "slug": "kripik-peyek",
+  "image": "/assets/images/peyek.jpg",
+  "description": "Terdapat 3 macam peyek :<br />1. Peyek Cabe<br />2. Peyek Brambang<br />3. Peyek Brambang<br /><br />UMKM ASE merupakan UMKM yang memproduksi Kripik Peyek ini. Berada di Desa Katongan, Gunungkidul, Daerah Istimewa Yogyakarta. UMKM ini berdiri pada tahun 2019, yang terdiri dari 19 orang anggota dengan berbagai macam produk yang dibuat.<br /><br />Produk dari UMKM ASE diantaranya stik buah, stik sayur, dodol, aneka peyek, aneka minuman, dan apem.<br />Adapun produk unggulan dari UMKM ini adalah stik buah dan sayur, yang merupakan makanan sehat namun bisa dijadikan cemilan sehari-hari.",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "keripik-kerupuk"
+}, {
+  "name": "Kopi Rawa Gede",
+  "slug": "kopi-rawa-gede",
+  "image": "/assets/images/kopi-rawa-gede.jpg",
+  "description": "Biji kopi asli yang berasal dari Bogor<br /><br />Berat bersih 200gr",
+  "price": 72000,
+  "isUseStock": true,
+  "baseStock": 5,
+  "categorySlug": "kopi"
+}, {
+  "name": "Kopi Sajang Sembalun",
+  "slug": "kopi-sajang-sembalun",
+  "image": "/assets/images/kopi-sajang-sembalun.jpg",
+  "description": "Kopi bubuk yang berasal dari Dusun Sajang Daya Desa Sajan, Sembalun, Lombok",
+  "price": 100000,
+  "isUseStock": true,
+  "baseStock": 5,
+  "categorySlug": "kopi"
+}, {
+  "name": "Dodol Aloevera",
+  "slug": "dodol-aloevera",
+  "image": "/assets/images/dodol-aloevera.jpg",
+  "description": "Dodol yang memiliki cita rasa aloevera.<br /><br />Berat : 200gr",
+  "price": 16000,
+  "isUseStock": true,
+  "baseStock": 15,
+  "categorySlug": "makanan-instan"
+}, {
+  "name": "Sayuran Hidroponik Pakcoy",
+  "slug": "sayuran-hidroponik-pakcoy",
+  "image": "/assets/images/pakcoy.jpg",
+  "description": "Sayuran hidroponik pakcoy yang di rawat di Dramaga, Bogor",
+  "price": 27000,
+  "isUseStock": false,
+  "baseStock": 0,
+  "categorySlug": "makanan-segar-beku"
+}, {
+  "name": "Ikan Bumbu Kuning",
+  "slug": "ikan-bumbu-kuning",
+  "image": "/assets/images/ikan-bumbu-kuning.jpg",
+  "description": "Olahan ikan bumbu kuning yang di kelola dan diolah di daerah Drama, Bogor.",
+  "price": 18000,
+  "isUseStock": false,
+  "baseStock": 0,
+  "categorySlug": "makanan-segar-beku"
+}, {
+  "name": "Bandeng Presto",
+  "slug": "bandeng-presto",
+  "image": "/assets/images/bandeng-presto.jpg",
+  "description": "Ikan bandeng yang diolah dengan teknik presto, dikemas menggunakan vacum sealer yang sudah diberi bumbu.<br /><br />Isi : 2 pcs / pack",
+  "price": 48000,
+  "isUseStock": false,
+  "baseStock": 0,
+  "categorySlug": "makanan-segar-beku"
+}, {
+  "name": "Masker Kain Uk Dewasa",
+  "slug": "masker-kain-uk-dewasa",
+  "image": "/assets/images/masker-dewasa.jpg",
+  "description": "Masker kain ukuran dewasa",
+  "price": 12000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "masker-kain"
+}, {
+  "name": "Masker Kain Uk Anak",
+  "slug": "masker-kain-uk-anak",
+  "image": "/assets/images/masker-anak.jpg",
+  "description": "Masker kain ukuran anak",
+  "price": 10000,
+  "isUseStock": true,
+  "baseStock": 25,
+  "categorySlug": "masker-kain"
+}, {
+  "name": "Paket Covid Kit",
+  "slug": "paket-covid-kit",
+  "image": "/assets/images/paket-covid-kit.jpg",
+  "description": "Paket Covid Kit dengan isian ;<br />1. Sajadah Travel<br />2. Totebag Lipat<br />3. Masker<br />4. Handsanitizer<br />Miliki paket ini dalam tasmu!<br /><br />UMKM Kube (Kelompok Usaha Bersama) Jahit dan Hidroponik merupakan UMKM yang memproduksi barang ini. Terletak di Jakarta Selatan dan terdiri dari beberapa pengrajin jahit maupun perkebunan hidroponik.",
+  "price": 60000,
+  "isUseStock": true,
+  "baseStock": 10,
+  "categorySlug": "paket-perawatan-wajah"
+}, {
+  "name": "Paket Premium Hampers",
+  "slug": "paket-premium-hampers",
+  "image": "/assets/images/paket-premium-hampers.jpg",
+  "description": "Paket Premium Hampers<br />- 3 Jenis Kue<br />Pilihan : Nastar Keju, Kastengel, Putri Salju<br />Berat masing-masing 200gr<br />- Toples Kaca<br />- Box premium dengan sekat<br /><br />Periode PO : 25 - 28 Maret 2022",
+  "price": 225000,
+  "isUseStock": false,
+  "baseStock": 0,
+  "categorySlug": "roti-kue"
+}, {
+  "name": "Paket Economic Hampers",
+  "slug": "paket-economic-hampers",
+  "image": "/assets/images/paket-economic-hampers.jpg",
+  "description": "Paket Economic Hampers<br />- 3 Jenis Kue<br />Pilihan : Sagu Keju, Blueberry Split, Banalo<br />Berat masing-masing 200gr<br />- Toples Plastik<br />- Box premium dengan sekat<br /><br />Periode PO : 25 - 28 Maret 2022",
+  "price": 190000,
+  "isUseStock": false,
+  "baseStock": 0,
+  "categorySlug": "roti-kue"
+}, {
+  "name": "Black Nastar",
+  "slug": "black-nastar",
+  "image": "/assets/images/black-nastar.jpg",
+  "description": "Kue kering black nastar. Di produksi dari Semarang, Jawa Tengah.<br /><br />Ukuran toples : 500gr",
+  "price": 60000,
+  "isUseStock": true,
+  "baseStock": 10,
+  "categorySlug": "roti-kue"
+}, {
+  "name": "Minuman Sari Kedelai",
+  "slug": "minuman-sari-kedelai",
+  "image": "/assets/images/sari-kedelai.jpg",
+  "description": "Minuman Sari Kedelai merupakan minuman yang berasal dari kacang kedelai. Melalui proses pengolahan hingga terbentuknya minuman siap santap yang bercita rasa kacang kedelai<br /><br />Berat : 250ml<br /><br />UMKM ASE merupakan UMKM yg berada di Desa Katongan, Gunungkidul, Daerah Istimewa Yogyakarta. UMKM ini berdiri pada tahun 2019, terdiri dari 19 orang anggota dengan berbagai macam produk yang dibuat.<br /><br />Produk dari UMKM ASE diantaranya stik buah, stik sayur, dodol, aneka peyek, aneka minuman, dan apem.<br />Adapun produk unggulan dari UMKM ini adalah stik buah dan sayur, yang merupakan makanan sehat namun bisa dijadikan cemilan sehari-hari.",
+  "price": 8000,
+  "isUseStock": true,
+  "baseStock": 30,
+  "categorySlug": "susu-non-diary"
+}, {
+  "name": "Tote Bag Tenun",
+  "slug": "tote-bag-tenun",
+  "image": "/assets/images/tote-bag-tenun.jpg",
+  "description": "Tenun Pringgasela dibuat oleh Lebae Nursini masih tersimpan sebagai pusaka leluhur Desa Pringgasela yang disebut Reragian. Tenun Pringgasela ini dibuat dengan menggunakan alat tenun tradisional gedogan dengan bermodalkan bahan alami yaitu batik benang dan warnanya berasal dari bagian tumbuhan seperti akar, batang kayu, dan daun.",
+  "price": 82000,
+  "isUseStock": true,
+  "baseStock": 10,
+  "categorySlug": "tote-bag"
+}, {
+  "name": "Tote Bag Batik",
+  "slug": "tote-bag-batik",
+  "image": "/assets/images/totebag-batik.jpg",
+  "description": "Tote Bag Batik. Ukuran 30 x 35 cm",
+  "price": 36000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "tote-bag"
+}, {
+  "name": "Tas Lipat",
+  "slug": "tas-lipat",
+  "image": "/assets/images/tas-lipat.jpg",
+  "description": "UMKM Kube (Kelompok Usaha Bersama) Jahit dan Hidroponik merupakan UMKM yang memproduksi barang ini. Terletak di Jakarta Selatan dan terdiri dari beberapa pengrajin jahit maupun perkebunan hidroponik.",
+  "price": 30000,
+  "isUseStock": true,
+  "baseStock": 20,
+  "categorySlug": "tote-bag"
+}]

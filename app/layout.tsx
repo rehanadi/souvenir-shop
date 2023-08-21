@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google'
 import { Providers } from '@/components/Providers'
 import Header from '@/app/components/layout/Header'
 import Footer from '@/app/components/layout/Footer'
-import { site } from '@/config/constants'
+import { site } from '@/config/site'
 
 const poppins = Poppins({
   weight: ['300', '400', '600', '700'],

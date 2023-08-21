@@ -1,23 +1,85 @@
-import { PrismaClient, Prisma } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
+import user from './data/user.json'
+import categories from './data/categories.json'
+import products from './data/products.json'
 
 const prisma = new PrismaClient()
 
-const userData: Prisma.UserCreateInput[] = [
-  {
-    name: 'Admin',
-    email: 'admin@rehan.id'
-  }
-]
+const adminEmail: string = 'admin@rehan.id'
 
-async function main() {
-  console.log(`Start seeding ...`)
-  for (const u of userData) {
-    const user = await prisma.user.create({
-      data: u,
+const seedUser = async () => {
+  console.log('--- Start seeding user data ---')
+
+  await prisma.user.deleteMany()
+  await prisma.user.create({
+    data: user
+  })
+
+  console.log('Created user', user.email)
+  console.log('Seeding user data finished')
+}
+
+const seedCategories = async () => {
+  console.log('--- Start seeding categories data ---')
+
+  await prisma.category.deleteMany()
+  categories.map(category => {
+    prisma.category.create({
+      data: {
+        name: category.name,
+        slug: category.slug,
+        createdByUser: {
+          connect: {
+            email: adminEmail
+          }
+        }
+      }
     })
-    console.log(`Created user with id: ${user.id}`)
-  }
-  console.log(`Seeding finished.`)
+    
+    console.log('Created category', category.name)
+  })
+  
+  console.log('Seeding categories data finished')
+}
+
+const seedProducts = async () => {
+  console.log('--- Start seeding products data ---')
+
+  await prisma.product.deleteMany()
+  products.map(product => {
+    prisma.product.create({
+      data: {
+        name: product.name,
+        slug: product.slug,
+        image: product.image,
+        description: product.description,
+        price: product.price,
+        isUseStock: product.isUseStock,
+        baseStock: product.baseStock,
+        remainStock: product.baseStock,
+        createdByUser: {
+          connect: {
+            email: adminEmail
+          }
+        },
+        categories: {
+          connect: {
+            slug: product.categorySlug
+          }
+        }
+      }
+    })
+
+    console.log('Created product', product.name)
+  })
+  
+  console.log('Seeding products data finished')
+}
+
+const main = async () => {
+  await seedUser()
+  await seedCategories()
+  await seedProducts()
 }
 
 main()

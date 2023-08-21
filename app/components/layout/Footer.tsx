@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import { ToastContainer } from 'react-toastify'
-import { site } from '@/config/constants'
+import { site } from '@/config/site'
 
 const Footer: React.FC = () => {
   return (

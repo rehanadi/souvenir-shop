@@ -1,6 +1,6 @@
 import { FaShopify } from 'react-icons/fa'
 import Link from "next/link"
-import { site } from '@/config/constants'
+import { site } from '@/config/site'
 import styles from '@/styles/layout.module.scss'
 import SignInButton from '@/components/auth/SignInButton'
 

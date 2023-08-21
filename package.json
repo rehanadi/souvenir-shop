@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "data:migrate": "prisma migrate dev --name migrate",
+    "data:seed": "prisma db seed"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
