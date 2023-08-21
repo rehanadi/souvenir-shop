@@ -1,5 +1,7 @@
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
+import { PrismaAdapter } from '@auth/prisma-adapter'
+import prisma from '@/lib/prisma/client'
 
 export const authOptions = {
   providers: [
@@ -14,6 +16,10 @@ export const authOptions = {
   ],
   pages: {
     signIn: '/signin'
+  },
+  adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: 'jwt'
   }
 }
 

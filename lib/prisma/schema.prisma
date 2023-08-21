@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(uuid())
+  id                 String  @id @default(cuid())
   userId             String  @map("user_id")
   type               String
   provider           String
@@ -33,7 +33,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(uuid())
+  id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
@@ -43,7 +43,7 @@ model Session {
 }
 
 model User {
-  id                String     @id @default(uuid())
+  id                String     @id @default(cuid())
   name              String?
   email             String?    @unique
   emailVerified     DateTime?  @map("email_verified")
@@ -71,7 +71,7 @@ model VerificationToken {
 }
 
 model Product {
-  id            String     @id @default(uuid())
+  id            String     @id @default(cuid())
   name          String
   slug          String     @unique
   image         String?
@@ -97,7 +97,7 @@ model Product {
 }
 
 model Category {
-  id            String    @id @default(uuid())
+  id            String    @id @default(cuid())
   name          String
   slug          String    @unique
   createdBy     String?   @map(name: "created_by")
