@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { FaUserCircle } from 'react-icons/fa'
-import styles from '@/styles/layout.module.scss'
+import styles from '@/styles/auth.module.scss'
 
 const SignInButton: React.FC = () => {
   return (

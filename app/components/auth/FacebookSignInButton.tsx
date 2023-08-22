@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { FaFacebook } from 'react-icons/fa'
-import styles from '@/styles/layout.module.scss'
+import styles from '@/styles/auth.module.scss'
 
 type FacebookSignInButtonProps = React.FC<{ callbackUrl?: string }>
 

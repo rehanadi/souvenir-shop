@@ -3,7 +3,7 @@
 // import { signIn } from 'next-auth/react'
 import { FaRegEnvelope } from 'react-icons/fa'
 import { toast } from 'react-toastify'
-import styles from '@/styles/layout.module.scss'
+import styles from '@/styles/auth.module.scss'
 
 type EmailSignInFormProps = React.FC<{ callbackUrl?: string }>
 

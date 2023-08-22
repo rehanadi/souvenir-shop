@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { FaGoogle } from 'react-icons/fa'
-import styles from '@/styles/layout.module.scss'
+import styles from '@/styles/auth.module.scss'
 
 type GoogleSignInButtonProps = React.FC<{ callbackUrl?: string }>
 
