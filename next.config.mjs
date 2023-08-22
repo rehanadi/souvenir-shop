@@ -6,6 +6,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(path.resolve(), 'app/styles')],
   },
+  images: {
+    domains: ['lh3.googleusercontent.com']
+  }
 }
 
 export default nextConfig

@@ -8,7 +8,7 @@ import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 import Rating from '@/components/products/Rating'
-import CartButton from "@/components/cart/CartButton"
+import AddToCartButton from "@/components/cart/AddToCartButton"
 import type { BreadcumbItems } from "@/lib/types"
 import { formatPrice } from "@/lib/utils/products"
 
@@ -80,7 +80,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
           <ul className='list-group list-group-flush mt-4'>
             <li className='list-group-item'>
               <div className='d-grid gap-2'>
-                <CartButton 
+                <AddToCartButton 
                   disabled={product?.remainStock === 0} 
                   onClick={handleAddToCart} 
                 />

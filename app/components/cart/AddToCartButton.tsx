@@ -1,12 +1,12 @@
 import { FaCartPlus } from 'react-icons/fa'
 import styles from '@/styles/cart.module.scss'
 
-type CartButtonProps = React.FC<{ disabled?: boolean, onClick?(): void }>
+type AddToCartButtonProps = React.FC<{ disabled?: boolean, onClick?(): void }>
 
-const CartButton: CartButtonProps = ({ disabled = false, onClick }) => {
+const AddToCartButton: AddToCartButtonProps = ({ disabled = false, onClick }) => {
   return (
     <button 
-      className='btn btn-success' 
+      className={`btn btn-success ${styles.addToCartBtn}`} 
       disabled={disabled} 
       onClick={onClick}
     >
@@ -15,4 +15,4 @@ const CartButton: CartButtonProps = ({ disabled = false, onClick }) => {
   )
 }
 
-export default CartButton
+export default AddToCartButton

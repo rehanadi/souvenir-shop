@@ -1,8 +1,8 @@
 import './styles/globals.scss'
 import { Poppins } from 'next/font/google'
 import { Providers } from '@/components/Providers'
-import Header from '@/app/components/layout/Header'
-import Footer from '@/app/components/layout/Footer'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/config/constants'
 
 const poppins = Poppins({

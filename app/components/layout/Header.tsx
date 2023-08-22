@@ -1,15 +1,15 @@
 import { FaShopify } from 'react-icons/fa'
 import Link from "next/link"
+import AuthUserButton from '@/components/auth/AuthUserButton'
 import { SITE_TITLE } from '@/config/constants'
 import styles from '@/styles/layout.module.scss'
-import SignInButton from '@/components/auth/SignInButton'
 
 const Header: React.FC = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <nav className='navbar navbar-expand-lg bg-success' data-bs-theme="dark">
         <div className='container'>
-          <Link className={`navbar-brand ${styles.headerLogo}`} href='/'>
+          <Link className='navbar-brand' href='/'>
             <span className={styles.logoIcon}><FaShopify /></span> {SITE_TITLE}
           </Link>
           <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
                 <Link className='nav-link' href='/products'>Products</Link>
               </li>
             </ul>
-            <SignInButton />
+            <AuthUserButton />
           </div>
         </div>
       </nav>

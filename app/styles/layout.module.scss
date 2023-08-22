@@ -1,6 +1,8 @@
-.headerLogo {
-  &:hover {
-    text-decoration: none;
+.header {
+  a {
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
