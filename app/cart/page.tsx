@@ -1,4 +1,6 @@
+import { Suspense } from "react"
 import Breadcrumb from "@/components/ui/Breadcrumb"
+import CartList from "@/components/cart/CartList"
 
 export const metadata = {
   title: 'Cart'
@@ -11,7 +13,15 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <section>Cart</section>
+      <div className="row">
+        <div className="col-10">
+          <h1 className="mt-3 mb-5">Cart</h1>
+          <Suspense>
+            <CartList />
+          </Suspense>
+        </div>
+        <div className="col-2"></div>
+      </div>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { FaShopify } from 'react-icons/fa'
 import Link from "next/link"
 import AuthUserButton from '@/components/auth/AuthUserButton'
+import CartLink from '@/components/cart/CartLink'
 import { SITE_TITLE } from '@/config/constants'
 import styles from '@/styles/layout.module.scss'
 
@@ -18,10 +19,15 @@ const Header: React.FC = () => {
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <Link className='nav-link' href='/products'>Products</Link>
+                <Link className='nav-link btn btn-success text-white' href='/products'>Products</Link>
               </li>
             </ul>
-            <AuthUserButton />
+            <ul className='navbar-nav bg-success' data-bs-theme='light'>
+              <li className='nav-item'>
+                <CartLink />
+              </li>
+              <AuthUserButton />
+            </ul>
           </div>
         </div>
       </nav>

@@ -1,6 +1,6 @@
 import './styles/globals.scss'
 import { Poppins } from 'next/font/google'
-import { Providers } from '@/components/Providers'
+import { Providers } from '@/components/layout/Providers'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/config/constants'
