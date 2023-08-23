@@ -26,16 +26,16 @@ const CartItem: CartItemProps = ({ item }) => {
           </div>
         </Link>
       </div>
-      <div className="col-4">
+      <div className="col-3">
         <Link className='text-success' href={`/products/${item?.slug}`}>
           {item?.name}
         </Link>
       </div>
       <div className="col-2">Rp{formatPrice(item?.price)}</div>
-      <div className="col-2">
+      <div className="col-3">
         <CartItemQty item={item} />
       </div>
-      <div className="col-2">
+      <div className="col-1">
         <RemoveFromCartButton item={item} />
       </div>
     </div>

@@ -20,7 +20,7 @@ const RemoveFromCartButton: RemoveFromCartButtonProps = ({ item }) => {
   return (
     <button 
       className='btn btn-danger'
-      style={{ marginLeft: '2rem' }} 
+      style={{ marginLeft: '1rem' }} 
       onClick={() => handleRemoveFromCart(item?.id)}
     ><BsTrash /></button>
   )
