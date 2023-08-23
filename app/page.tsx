@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import ProductList from "@/components/products/ProductList"
+import TopProductList from "@/components/products/TopProductList"
 import Spinner from "./components/ui/Spinner"
 
 export default function IndexPage() {
@@ -7,7 +7,11 @@ export default function IndexPage() {
     <>
       <h1 className="py-5 text-center">Featured Products</h1>
       <Suspense fallback={<Spinner />}>
-        <ProductList limit={8} />
+        <div className="row" style={{ marginBottom: '10rem' }}>
+          <div className="col-12">
+            <TopProductList />
+          </div>
+        </div>
       </Suspense>
     </>
   )

@@ -17,7 +17,7 @@ const CartBadge: React.FC = () => {
   return (
     <>
       {cartItems?.length > 0 && (
-        <span className={`translate-middle badge rounded-pill bg-danger ${styles.cartBadge}`}>
+        <span className={`translate-middle badge rounded-pill bg-danger ${styles.badge}`}>
           {cartItems?.length}
         </span>
       )}

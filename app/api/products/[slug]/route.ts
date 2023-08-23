@@ -1,16 +1,24 @@
 import { type NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prisma/client'
+import { getTopProducts, getProductsBySlug } from '@/lib/controllers/products'
 
 export async function GET(
   request: NextRequest, 
   { params }: { params: { slug: string } }
 ) {
-  const slug = params.slug
-  const product = await prisma.product.findUnique({ where: { slug } })
-
   try {
-    return NextResponse.json({ product }, { status: 200 })
+    const slug = params.slug
+    let result = {}
+    
+    if (slug === 'top') {
+      const products = await getTopProducts()
+      result = { products }
+    } else {
+      const product = await getProductsBySlug(slug)
+      result = { product }
+    }
+    
+    return NextResponse.json({ ...result }, { status: 200 })
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

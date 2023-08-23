@@ -10,13 +10,20 @@
   margin-right: .5rem;
 }
 
-.cartLabel {
+.btnLabel {
   position: relative;
 }
 
-.cartBadge {
+.badge {
   position: absolute;
   top: 1rem;
   left: .5rem;
   padding: .15rem .3rem .14rem !important;
+}
+
+.itemImageContainer {
+  display: block;
+  position: relative;
+  max-width: 6rem;
+  min-height: 6rem;
 }

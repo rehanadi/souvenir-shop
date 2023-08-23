@@ -1,6 +1,6 @@
 'use client'
 
-import type { Product } from '@prisma/client'
+import type { Product } from '@/lib/types'
 import type { SetStateAction, Dispatch } from 'react'
 
 type UseQtyProps = {

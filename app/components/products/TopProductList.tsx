@@ -1,11 +1,11 @@
 'use client'
 
-import { useGetProductsQuery } from '@/lib/redux'
+import { useGetTopProductsQuery } from '@/lib/redux'
 import type { Product } from '@/lib/types'
 import ProductItem from '@/components/products/ProductItem'
 
-const ProductList: React.FC = () => {
-  const { data } = useGetProductsQuery(undefined)
+const TopProductList: React.FC = () => {
+  const { data } = useGetTopProductsQuery(undefined)
   const products: Product[] = data?.products || []
   
   return (
@@ -19,4 +19,4 @@ const ProductList: React.FC = () => {
   )
 }
 
-export default ProductList
+export default TopProductList

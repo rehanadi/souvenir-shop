@@ -13,7 +13,7 @@ const CartLink: React.FC = () => {
         <FaShoppingCart />
       </span>
       {' '}
-      <span className={styles.cartLabel}>
+      <span className={styles.btnLabel}>
         Cart <CartBadge />
       </span>
     </Link>

@@ -1,11 +1,23 @@
-.productTitle {
+.title {
   min-height: 3rem;
   font-weight: 500;
 }
 
-.productPrice {
+.price {
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.itemImageContainer {
+  display: block;
+  position: relative;
+  height: 15rem;
+}
+
+.fullImageContainer {
+  display: block;
+  position: relative;
+  height: 25rem;
 }
 
 .rating span {
@@ -18,6 +30,5 @@
 
 .ratingText {
   font-size: 0.8rem;
-  font-weight: 600;
   padding-left: 0.5rem;
 }

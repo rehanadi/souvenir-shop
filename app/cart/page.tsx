@@ -13,7 +13,7 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className="row">
+      <div className="row" style={{ marginBottom: '10rem' }}>
         <div className="col-10">
           <h1 className="mt-3 mb-5">Cart</h1>
           <Suspense>

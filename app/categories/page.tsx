@@ -1,13 +1,13 @@
-import ProductList from "@/components/products/ProductList"
+import CategoryList from "@/components/categories/CategoryList"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
 export const metadata = {
-  title: 'Products'
+  title: 'Categories'
 }
 
-const ProductsPage: React.FC = () => {
+const CategoriesPage: React.FC = () => {
   const breadcrumbItems = [{
-    name: 'Products'
+    name: 'Categories'
   }]
   
   return (
@@ -15,12 +15,12 @@ const ProductsPage: React.FC = () => {
       <Breadcrumb items={breadcrumbItems} />
       <div className="row" style={{ marginBottom: '10rem' }}>
         <div className="col-12">
-          <h1 className="mt-3 mb-5">Products</h1>
-          <ProductList />
+          <h1 className="mt-3 mb-5">Categories</h1>
+          <CategoryList />
         </div>
       </div>
     </>
   )
 }
 
-export default ProductsPage
+export default CategoriesPage

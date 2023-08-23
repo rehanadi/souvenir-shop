@@ -9,7 +9,7 @@ type UserProfileButtonProps = React.FC<{ session: Session }>
 const UserProfileButton: UserProfileButtonProps = ({ session: { user } }) => {
   return (
     <li className='nav-item dropdown'>
-      <a className='nav-link dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
+      <a className='nav-link btn btn-success text-white dropdown-toggle' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
         <Image 
           className='rounded-circle shadow-4-strong' 
           alt={user?.name || 'Profile'} 
@@ -23,8 +23,9 @@ const UserProfileButton: UserProfileButtonProps = ({ session: { user } }) => {
       <ul className='dropdown-menu dropdown-menu-end'>
         <li><Link className='dropdown-item' href='/account'>Dashboard</Link></li>
         <li><Link className='dropdown-item' href='/account/orders'>Orders</Link></li>
+        <li><Link className='dropdown-item' href='/account/wishlist'>Wishlist</Link></li>
         <li><Link className='dropdown-item' href='/account/address'>Edit Address</Link></li>
-        <li><Link className='dropdown-item' href='/account/profile'>Account Details</Link></li>
+        <li><Link className='dropdown-item' href='/account/profile'>Edit Profile</Link></li>
         <li><hr className='dropdown-divider' /></li>
         <li><SignOutLink /></li>
       </ul>

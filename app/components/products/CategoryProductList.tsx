@@ -1,11 +1,13 @@
 'use client'
 
-import { useGetProductsQuery } from '@/lib/redux'
-import type { Product } from '@/lib/types'
+import { useGetProductByCategorySlugQuery } from '@/lib/redux'
 import ProductItem from '@/components/products/ProductItem'
+import type { Product } from '@/lib/types'
 
-const ProductList: React.FC = () => {
-  const { data } = useGetProductsQuery(undefined)
+type CategoryProductListProps = React.FC<{ slug: string }>
+
+const CategoryProductList: CategoryProductListProps = ({ slug }) => {
+  const { data } = useGetProductByCategorySlugQuery(slug)
   const products: Product[] = data?.products || []
   
   return (
@@ -19,4 +21,4 @@ const ProductList: React.FC = () => {
   )
 }
 
-export default ProductList
+export default CategoryProductList

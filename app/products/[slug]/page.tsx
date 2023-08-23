@@ -1,23 +1,26 @@
 'use client'
 
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import Image from "next/image"
-import noImage from '@/public/assets/images/no-img.png'
+import { noImage, blurDataUrl } from '@/lib/utils/images'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import { useDispatch, useGetProductBySlugQuery, addToCart } from "@/lib/redux"
 import useQty from '@/lib/hooks/useQty'
+import type { BreadcumbItems, Product } from "@/lib/types"
+import { formatPrice } from "@/lib/utils/products"
+import styles from '@/styles/products.module.scss'
+
 import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 import Rating from '@/components/products/Rating'
+import RemainStock from '@/components/products/RemainStock'
+import CategoryLinks from '@/components/categories/CategoryLinks'
 import AddToCartButton from "@/components/cart/AddToCartButton"
-import type { BreadcumbItems } from "@/lib/types"
-import type { Product } from '@prisma/client'
-import { formatPrice } from "@/lib/utils/products"
-import { toast } from 'react-toastify'
 
 export const metadata = {
-  title: 'Products'
+  title: 'Product'
 }
 
 type ProductPageProps = React.FC<{ params: { slug: string } }>
@@ -79,12 +82,17 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
       <Breadcrumb items={breadcrumbItems} />
       <div className="row" style={{ marginBottom: '10rem' }}>
         <div className="col-5">
-          <Image 
-            src={product?.image || noImage} 
-            width={400} 
-            height={400} 
-            alt={product?.name} 
-          />
+          <div className={styles.fullImageContainer}>
+            <Image
+              fill
+              src={product?.image || noImage} 
+              alt={product?.name}
+              sizes='50vw'
+              priority
+              placeholder='blur'
+              blurDataURL={blurDataUrl}
+            />
+          </div>
         </div>
         <div className="col-7">
           <ul className='list-group list-group-flush'>
@@ -142,15 +150,10 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
                     </div>
                   </div>
                   <div className="col-6">
-                    {product?.isUseStock && (
-                      <div style={{ marginTop: '2.5rem' }}>
-                        Stock:
-                        {' '}
-                        <span className='text-success'>
-                          {product?.remainStock} remaining
-                        </span>
-                      </div>
-                    )}
+                    <RemainStock 
+                      isUseStock={product?.isUseStock} 
+                      remainStock={product?.remainStock} 
+                    />
                   </div>
                 </div>
               )}
@@ -164,6 +167,11 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
                   onClick={handleAddToCart}
                 />
               </div>
+            </li>
+          </ul>
+          <ul className='list-group list-group-flush mt-4'>
+            <li className='list-group-item'>
+              Categories: <CategoryLinks categories={product?.categories} />
             </li>
           </ul>
         </div>
