@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/config/auth'
 import SignInButton from '@/components/auth/SignInButton'
-import UserProfileButton from '@/components/auth/UserProfileButton'
+import UserMenus from '@/components/auth/UserMenus'
 
 const AuthUserButton: React.FC = async () => {
   const session = await getServerSession(authOptions)
@@ -9,7 +9,7 @@ const AuthUserButton: React.FC = async () => {
   return (
     <>
       {session ? (
-        <UserProfileButton session={session} />
+        <UserMenus session={session} />
       ) : (
         <SignInButton />
       )}

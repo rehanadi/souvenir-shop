@@ -10,7 +10,11 @@ const SignInButton: React.FC = () => {
       className='btn btn-success' 
       onClick={() => signIn()}
     >
-      <span className={styles.btnIcon}><FaUserCircle /></span> Sign In
+      <span className={styles.btnIcon}>
+        <FaUserCircle />
+      </span>
+      {' '}
+      Sign In
     </button>
   )
 }

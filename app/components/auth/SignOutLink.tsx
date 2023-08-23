@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
+import { GoSignOut } from 'react-icons/go'
+import styles from '@/styles/auth.module.scss'
 
 const SignOutLink: React.FC = () => {
   return (
@@ -10,7 +12,7 @@ const SignOutLink: React.FC = () => {
       href='#' 
       onClick={() => signOut()}
     >
-      Sign Out
+      <span className={styles.btnIcon}><GoSignOut /></span> Sign Out
     </Link>
   )
 }

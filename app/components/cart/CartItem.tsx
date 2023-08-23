@@ -3,7 +3,9 @@ import Image from "next/image"
 import { noImage, blurDataUrl } from '@/lib/utils/images'
 import type { CartItem } from "@/lib/types"
 import { formatPrice } from "@/lib/utils/products"
+import CartItemQty from '@/components/cart/CartItemQty'
 import styles from '@/styles/cart.module.scss'
+import RemoveFromCartButton from './RemoveFromCartButton'
 
 type CartItemProps = React.FC<{ item: CartItem }> 
 
@@ -30,8 +32,12 @@ const CartItem: CartItemProps = ({ item }) => {
         </Link>
       </div>
       <div className="col-2">Rp{formatPrice(item?.price)}</div>
-      <div className="col-2">{item?.qty}</div>
-      <div className="col-2">Delete</div>
+      <div className="col-2">
+        <CartItemQty item={item} />
+      </div>
+      <div className="col-2">
+        <RemoveFromCartButton item={item} />
+      </div>
     </div>
   )
 }

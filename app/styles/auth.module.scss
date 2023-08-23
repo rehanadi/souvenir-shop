@@ -5,3 +5,16 @@
 .btnIcon {
   margin-right: .3rem;
 }
+
+.userMenus {
+  li {
+    a {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}

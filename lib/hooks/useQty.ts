@@ -1,13 +1,13 @@
 'use client'
 
-import type { Product } from '@/lib/types'
+import type { Product, CartItem } from '@/lib/types'
 import type { SetStateAction, Dispatch } from 'react'
 
 type UseQtyProps = {
   qty: number, 
   minimalQty: number,
   setQty: Dispatch<SetStateAction<number>>,
-  product: Product
+  product: Product | CartItem
 }
 
 const useQty = ({ qty, minimalQty = 1, setQty, product }: UseQtyProps)  => {

@@ -10,7 +10,11 @@ const AddToCartButton: AddToCartButtonProps = ({ disabled = false, onClick }) =>
       disabled={disabled} 
       onClick={onClick}
     >
-      <span className={styles.cartIcon}><FaCartPlus /></span> Add to Cart
+      <span className={styles.cartIcon}>
+        <FaCartPlus />
+      </span>
+      {' '}
+      Add to Cart
     </button>
   )
 }
