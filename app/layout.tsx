@@ -21,9 +21,7 @@ export default function RootLayout(props: React.PropsWithChildren) {
       <html lang="en">
         <body className={poppins.className}>
           <Header />
-          <main className='py-3'>
-            <div className='container'>{props.children}</div>
-          </main>
+          {props.children}
           <Footer />
         </body>
       </html>

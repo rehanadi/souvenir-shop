@@ -1,18 +1,22 @@
 import { Suspense } from "react"
 import TopProductList from "@/components/products/TopProductList"
-import Spinner from "./components/ui/Spinner"
+import Spinner from "@/components/ui/Spinner"
+import Carousel from "@/components/ui/Carousel"
 
 export default function IndexPage() {
   return (
     <>
-      <h1 className="py-5 text-center">Featured Products</h1>
-      <Suspense fallback={<Spinner />}>
-        <div className="row" style={{ marginBottom: '10rem' }}>
-          <div className="col-12">
-            <TopProductList />
-          </div>
+      <Carousel />
+      <main className='py-3'>
+        <div className='container'>
+          <h1 className="py-5 text-center">Featured Products</h1>
+          <Suspense fallback={<Spinner />}>
+            <div style={{ marginBottom: '10rem' }}>
+              <TopProductList />
+            </div>
+          </Suspense>
         </div>
-      </Suspense>
+      </main>
     </>
   )
 }
