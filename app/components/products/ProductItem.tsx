@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from "next/image"
-import { noImage, blurDataUrl } from '@/lib/utils/images'
-import { formatPrice } from '@/lib/utils/products'
+import { noImage, blurDataUrl } from '@/utils/images'
+import { formatPrice } from '@/utils/products'
 import type { Product } from '@/lib/types'
 import Rating from '@/components/products/Rating'
 import styles from '@/styles/products.module.scss'

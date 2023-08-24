@@ -1,8 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import { noImage, blurDataUrl } from '@/lib/utils/images'
+import { noImage, blurDataUrl } from '@/utils/images'
 import type { CartItem } from "@/lib/types"
-import { formatPrice } from "@/lib/utils/products"
+import { formatPrice } from "@/utils/products"
 import CartItemQty from '@/components/cart/CartItemQty'
 import styles from '@/styles/cart.module.scss'
 import RemoveFromCartButton from './RemoveFromCartButton'

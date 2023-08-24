@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { getProductsByCategorySlug } from '@/lib/controllers/products'
+import { getProductsByCategorySlug } from '@/services/products'
 
 export async function GET(
   request: NextRequest, 

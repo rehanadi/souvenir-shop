@@ -4,7 +4,7 @@ import { FaRegUserCircle } from 'react-icons/fa'
 import { GrFavorite } from 'react-icons/gr'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import type { Session } from 'next-auth'
-import { avatarImage } from '@/lib/utils/images'
+import { avatarImage } from '@/utils/images'
 import SignOutLink from '@/components/auth/SignOutLink'
 import styles from '@/styles/auth.module.scss'
 

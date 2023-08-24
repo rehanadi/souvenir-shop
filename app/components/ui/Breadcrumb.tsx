@@ -7,7 +7,9 @@ const Breadcrumb: BreadcrumbProps = ({ items = [] }) => {
   return (
     <nav aria-label='breadcrumb' className="py-3">
       <ol className='breadcrumb'>
-        <li className='breadcrumb-item'><Link href='/'>Home</Link></li>
+        <li className='breadcrumb-item'>
+          <Link href='/'>Home</Link>
+        </li>
         {items.map((item, index) => 
           item.url 
           ? (

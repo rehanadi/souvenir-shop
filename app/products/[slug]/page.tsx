@@ -1,10 +1,10 @@
 'use client'
 
 import Image from "next/image"
-import { noImage, blurDataUrl } from '@/lib/utils/images'
+import { noImage, blurDataUrl } from '@/utils/images'
 import { useGetProductBySlugQuery } from "@/lib/redux"
 import type { BreadcumbItems, Product } from "@/lib/types"
-import { formatPrice } from "@/lib/utils/products"
+import { formatPrice } from "@/utils/products"
 import styles from '@/styles/products.module.scss'
 
 import Spinner from "@/components/ui/Spinner"

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { CartState, CartItem } from '@/lib/types'
-import { updateCart } from '@/lib/utils/cart'
+import { updateCart } from '@/utils/cart'
 
 const cartState = { 
   cartItems: [],

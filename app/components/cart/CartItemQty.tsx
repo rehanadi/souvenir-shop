@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import RemainStock from '@/components/products/RemainStock'
 import { useDispatch, addToCart } from "@/lib/redux"
-import useQty from '@/lib/hooks/useQty'
+import useQty from '@/hooks/useQty'
 import type { CartItem } from "@/lib/types"
 
 type CartItemQtyProps = React.FC<{ item: CartItem }> 

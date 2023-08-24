@@ -1,6 +1,6 @@
 import { type NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { getTopProducts, getProductsBySlug } from '@/lib/controllers/products'
+import { getTopProducts, getProductsBySlug } from '@/services/products'
 
 export async function GET(
   request: NextRequest, 

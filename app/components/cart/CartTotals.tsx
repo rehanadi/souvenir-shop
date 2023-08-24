@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { MdShoppingCartCheckout } from 'react-icons/md'
 import { useSelector } from "@/lib/redux"
 import type { CartState } from "@/lib/types"
-import { formatPrice } from "@/lib/utils/products"
+import { formatPrice } from "@/utils/products"
 import styles from '@/styles/cart.module.scss'
 
 const CartTotals: React.FC = () => {
@@ -29,7 +29,7 @@ const CartTotals: React.FC = () => {
         <div className='card-text pb-2'>
           <div className='d-grid gap-2'>
             <Link 
-              href='/checkout' 
+              href='/checkout/shipping-address' 
               className={`btn btn-success ${styles.checkoutLink}`}
             >
               <span className={styles.btnIcon}>
