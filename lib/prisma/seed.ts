@@ -2,9 +2,9 @@ import { PrismaClient } from '@prisma/client'
 import user from './data/user.json'
 import categories from './data/categories.json'
 import products from './data/products.json'
+import sliders from './data/sliders.json'
 
 const prisma = new PrismaClient()
-
 const adminEmail: string = 'admin@rehan.id'
 
 const seedUser = async () => {
@@ -76,10 +76,26 @@ const seedProducts = async () => {
   console.log('Seeding products data finished')
 }
 
+const seedSliders = async () => {
+  console.log('--- Start seeding sliders data ---')
+
+  await prisma.slider.deleteMany()
+  for (const slider of sliders) {
+    await prisma.slider.create({
+      data: slider
+    })
+
+    console.log('Created slider', slider.name)
+  }
+  
+  console.log('Seeding sliders data finished')
+}
+
 const main = async () => {
   await seedUser()
   await seedCategories()
   await seedProducts()
+  await seedSliders()
 }
 
 main()

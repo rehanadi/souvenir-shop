@@ -1,3 +1,7 @@
+.wrapper {
+  margin-bottom: 10rem;
+}
+
 .header {
   a {
     &:hover {
@@ -16,4 +20,14 @@
 
 .logoIcon {
   margin-right: .2rem;
+}
+
+.sliderImageContainer {
+  position: relative;
+  min-height: 85vh;
+  width: 100%;
+}
+
+.sliderCaption {
+  text-shadow: 1px 1px 0px #454545;
 }

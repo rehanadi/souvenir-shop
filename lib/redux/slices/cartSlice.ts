@@ -1,48 +1,73 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { CartState, CartItem } from '@/lib/types'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import type { CartState, CartItem, ShippingAddress } from '@/lib/types'
 import { updateCart } from '@/utils/cart'
 
-const cartState = { 
+export const shippingAddressState = {
+  firstName: '', 
+  lastName: '', 
+  address: '', 
+  provinceId: '', 
+  province: '', 
+  cityId: '', 
+  city: '', 
+  subdistrictId: '', 
+  subdistrict: '', 
+  postalCode: '', 
+  phone: '', 
+  company: '', 
+  comments: ''
+} as ShippingAddress
+
+export const cartState = { 
   cartItems: [],
-  shippingAddress: {},
-  paymentMethod: ''
+  shippingAddress: shippingAddressState,
+  shippingMethod: '',
+  paymentMethod: '',
+  itemsPrice: 0,
+  shippingPrice: 0,
+  totalPrice: 0
 } as CartState
 
-const initialState = 
+const initialState = (
   typeof window !== "undefined" && localStorage.getItem('cart') 
   ? JSON.parse(localStorage.getItem('cart') || JSON.stringify(cartState)) 
   : cartState
+) as CartState
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<CartItem>) => {
       const newItem = action.payload
-      const existItem = state.cartItems.find((item: CartItem) => item.id === newItem.id)
+      const existItem = state.cartItems.find(item => item.id === newItem.id)
 
       if (existItem) {
-        state.cartItems = state.cartItems.map((item: CartItem) => item.id === existItem.id ? newItem : item)
+        state.cartItems = state.cartItems.map(item => item.id === existItem.id ? newItem : item)
       } else {
         state.cartItems.push(newItem)
       }
 
       return updateCart(state)
     },
-    removeFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter((item: CartItem) => item.id !== action.payload)
+    removeFromCart: (state, action: PayloadAction<string>) => {
+      state.cartItems = state.cartItems.filter(item => item.id !== action.payload)
       return updateCart(state)
     },
-    saveShippingAddress: (state, action) => {
+    saveShippingAddress: (state, action: PayloadAction<ShippingAddress>) => {
       state.shippingAddress = action.payload
       return updateCart(state)
     },
-    savePaymentMethod: (state, action) => {
+    saveShippingMethod: (state, action: PayloadAction<string>) => {
+      state.shippingMethod = action.payload 
+      return updateCart(state)
+    },
+    savePaymentMethod: (state, action: PayloadAction<string>) => {
       state.paymentMethod = action.payload 
       return updateCart(state)
     },
     clearCart: (state, action) => {
-      state.cartItems = []
+      state = cartState
       return updateCart(state)
     }
   }
@@ -52,6 +77,7 @@ export const {
   addToCart, 
   removeFromCart, 
   saveShippingAddress, 
+  saveShippingMethod,
   savePaymentMethod,
   clearCart
 } = cartSlice.actions

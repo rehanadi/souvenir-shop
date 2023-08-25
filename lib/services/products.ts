@@ -1,6 +1,6 @@
 import prisma from '@/lib/prisma/client'
 
-export const getAllProducts = async () => {
+export const getProducts = async () => {
   const products = await prisma.product.findMany({
     orderBy: {
       createdAt: 'desc'

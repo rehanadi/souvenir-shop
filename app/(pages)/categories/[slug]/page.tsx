@@ -7,6 +7,7 @@ import CategoryProductList from "@/components/products/CategoryProductList"
 import { useGetCategoryBySlugQuery } from "@/lib/redux"
 import type { Category } from "@prisma/client"
 import type { BreadcumbItems } from "@/lib/types"
+import styles from '@/styles/categories.module.scss'
 
 export const metadata = {
   title: 'Category'
@@ -44,12 +45,14 @@ const CategoryPage: CategoryPageProps = ({ params: { slug } }) => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className="row" style={{ marginBottom: '10rem' }}>
-        <div className="col-12">
-          <h1 className="mt-3 mb-5" style={{ fontSize: '1.5rem' }}>
-            Products for Category “{category?.name}”
-          </h1>
-          <CategoryProductList slug={category?.slug} />
+      <div className={styles.wrapper}>
+        <div className="row">
+          <div className="col-12">
+            <h1 className="mt-3 mb-5" style={{ fontSize: '1.5rem' }}>
+              Products for Category “{category?.name}”
+            </h1>
+            <CategoryProductList slug={category?.slug} />
+          </div>
         </div>
       </div>
     </>

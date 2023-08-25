@@ -1,0 +1,16 @@
+[{
+  "name": "Fruit",
+  "image": "/assets/images/sliders/fruit.jpg",
+  "caption": "Dapatkan Sayuran dan Buah Segar",
+  "url": "/categories/makanan-segar-beku"
+}, {
+  "name": "Coffee",
+  "image": "/assets/images/sliders/coffee.jpg",
+  "caption": "Kopi Nikmat Siap Menemani Sore Harimu",
+  "url": "/categories/kopi"
+}, {
+  "name": "Cake",
+  "image": "/assets/images/sliders/cake.jpg",
+  "caption": "Dapatkan Aneka Roti & Kue Disini",
+  "url": "/categories/roti-kue"
+}]

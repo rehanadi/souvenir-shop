@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
-import { getCategories } from '@/services/categories'
+import { getProvinces } from '@/services/shipping'
 
 export async function GET() {
   try {
-    const categories = await getCategories()
+    const provinces = await getProvinces()
     
-    return NextResponse.json({ categories }, { status: 200 })
+    return NextResponse.json({ provinces }, { status: 200 })
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 })
   }

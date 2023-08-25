@@ -1,4 +1,5 @@
 export * from './apiSlice'
 export * from './productsApiSlice'
 export * from './categoriesApiSlice'
+export * from './shippingApiSlice'
 export * from './cartSlice'

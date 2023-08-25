@@ -111,3 +111,16 @@ model Category {
   @@index([slug])
   @@map(name: "categories")
 }
+
+model Slider {
+  id        String   @id @default(cuid())
+  name      String
+  image     String
+  caption   String?
+  url       String?
+  isActive  Boolean  @default(true) @map(name: "is_active")
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+
+  @@map(name: "sliders")
+}

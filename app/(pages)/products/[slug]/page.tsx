@@ -50,40 +50,42 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className="row" style={{ marginBottom: '10rem' }}>
-        <div className="col-5">
-          <div className={styles.fullImageContainer}>
-            <Image
-              fill
-              src={product?.image || noImage} 
-              alt={product?.name}
-              sizes='50vw'
-              priority
-              placeholder='blur'
-              blurDataURL={blurDataUrl}
-            />
-          </div>
-        </div>
-        <div className="col-7">
-          <ul className='list-group list-group-flush'>
-            <li className='list-group-item'><h1>{product?.name}</h1></li>
-            <li className='list-group-item'>
-              <Rating
-                value={product?.rating}
-                text={`${product?.reviewsCount} reviews`}
+      <div className={styles.wrapper}>
+        <div className="row">
+          <div className="col-5">
+            <div className={styles.fullImageContainer}>
+              <Image
+                fill
+                src={product?.image || noImage} 
+                alt={product?.name}
+                sizes='50vw'
+                priority
+                placeholder='blur'
+                blurDataURL={blurDataUrl}
               />
-            </li>
-            <li className='list-group-item py-5'>
-              <div dangerouslySetInnerHTML={{ __html: product?.description || '' }}></div>
-            </li>
-            <li className='list-group-item mt-2'><h3>Rp{formatPrice(product?.price)}</h3></li>
-          </ul>
-          <AddProductToCart product={product} />
-          <ul className='list-group list-group-flush mt-4'>
-            <li className='list-group-item'>
-              Categories: <CategoryLinks categories={product?.categories} />
-            </li>
-          </ul>
+            </div>
+          </div>
+          <div className="col-7">
+            <ul className='list-group list-group-flush'>
+              <li className='list-group-item'><h1>{product?.name}</h1></li>
+              <li className='list-group-item'>
+                <Rating
+                  value={product?.rating}
+                  text={`${product?.reviewsCount} reviews`}
+                />
+              </li>
+              <li className='list-group-item py-5'>
+                <div dangerouslySetInnerHTML={{ __html: product?.description || '' }}></div>
+              </li>
+              <li className='list-group-item mt-2'><h3>Rp{formatPrice(product?.price)}</h3></li>
+            </ul>
+            <AddProductToCart product={product} />
+            <ul className='list-group list-group-flush mt-4'>
+              <li className='list-group-item'>
+                Categories: <CategoryLinks categories={product?.categories} />
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
