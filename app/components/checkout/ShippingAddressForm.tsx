@@ -1,7 +1,9 @@
 'use client'
 
-import { useState, useTransition } from 'react'
-import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
+import { useState } from 'react'
+import { FiArrowLeft } from 'react-icons/fi'
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { 
   useDispatch, 
   useSelector,
@@ -11,9 +13,9 @@ import {
   saveShippingAddress
 } from '@/lib/redux'
 import type { Province, City, Subdistrict } from '@/lib/types'
-import styles from '@/styles/checkout.module.scss'
 import Required from '@/components/checkout/Required'
-import { toast } from 'react-toastify'
+import styles from '@/styles/checkout.module.scss'
+import Link from 'next/link'
 
 const ShippingAddressForm: React.FC = () => {
   const cart = useSelector(state => state.cart)
@@ -29,8 +31,6 @@ const ShippingAddressForm: React.FC = () => {
   const subdistricts: Subdistrict[] = dataSubdistricts?.subdistricts || []
 
   const dispatch = useDispatch()
-  const router = useRouter()
-  const [isPending, startTransition] = useTransition()
 
   type ChangeEvent = (
     React.ChangeEvent<HTMLInputElement> | 
@@ -107,9 +107,6 @@ const ShippingAddressForm: React.FC = () => {
     // Save shipping address
     dispatch(saveShippingAddress(shippingAddress))
     toast.success('Shipping address have been saved')
-    startTransition(() => {
-      router.refresh()
-    })
   }
 
   return (
@@ -269,10 +266,21 @@ const ShippingAddressForm: React.FC = () => {
         ></textarea>
       </div>
 
-      <button 
-        type='submit' 
-        className='btn btn-success mt-1'
-      >Save Address</button>
+      <div className={`form-group mt-5 d-flex justify-content-between ${styles.formRow}`}>
+        <span className='text-success'>
+          <FiArrowLeft />
+          {' '}
+          <Link href='/cart'>
+            Return to cart
+          </Link>
+        </span>
+        <Link 
+          href='/checkout/shipping-method' 
+          className={`btn btn-success ${styles.linkBtn}`}
+        >
+          Continue to shipping method <MdOutlineKeyboardArrowRight />
+        </Link>
+      </div>
     </form>
   )
 }

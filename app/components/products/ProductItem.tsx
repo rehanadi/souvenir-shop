@@ -32,7 +32,7 @@ const ProductItem: ProductItemProps = ({ product }) => {
           <Rating value={product?.rating || 0} />
         </div>
         <div className='card-text'>
-          <span className={`${styles.price}`}>Rp{formatPrice(product?.price)}</span>
+          <span className={`${styles.price}`}>{formatPrice(product?.price)}</span>
         </div>
       </div>
     </div>

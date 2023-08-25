@@ -2,25 +2,23 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import type { CartState, CartItem, ShippingAddress } from '@/lib/types'
 import { updateCart } from '@/utils/cart'
 
-export const shippingAddressState = {
-  firstName: '', 
-  lastName: '', 
-  address: '', 
-  provinceId: '', 
-  province: '', 
-  cityId: '', 
-  city: '', 
-  subdistrictId: '', 
-  subdistrict: '', 
-  postalCode: '', 
-  phone: '', 
-  company: '', 
-  comments: ''
-} as ShippingAddress
-
-export const cartState = { 
+const cartState = { 
   cartItems: [],
-  shippingAddress: shippingAddressState,
+  shippingAddress: {
+    firstName: '', 
+    lastName: '', 
+    address: '', 
+    provinceId: '', 
+    province: '', 
+    cityId: '', 
+    city: '', 
+    subdistrictId: '', 
+    subdistrict: '', 
+    postalCode: '', 
+    phone: '', 
+    company: '', 
+    comments: ''
+  },
   shippingMethod: '',
   paymentMethod: '',
   itemsPrice: 0,

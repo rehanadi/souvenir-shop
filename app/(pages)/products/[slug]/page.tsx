@@ -77,7 +77,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
               <li className='list-group-item py-5'>
                 <div dangerouslySetInnerHTML={{ __html: product?.description || '' }}></div>
               </li>
-              <li className='list-group-item mt-2'><h3>Rp{formatPrice(product?.price)}</h3></li>
+              <li className='list-group-item mt-2'><h3>{formatPrice(product?.price)}</h3></li>
             </ul>
             <AddProductToCart product={product} />
             <ul className='list-group list-group-flush mt-4'>

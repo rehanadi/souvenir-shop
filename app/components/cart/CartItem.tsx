@@ -31,7 +31,7 @@ const CartItem: CartItemProps = ({ item }) => {
           {item?.name}
         </Link>
       </div>
-      <div className="col-2">Rp{formatPrice(item?.price)}</div>
+      <div className="col-2">{formatPrice(item?.price)}</div>
       <div className="col-3">
         <CartItemQty item={item} />
       </div>

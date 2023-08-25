@@ -13,7 +13,7 @@ const CartBadge: React.FC = () => {
   }, [])
 
   if (!domLoaded) return
-
+  
   return (
     <>
       {cartItems?.length > 0 && (
