@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import { headers } from "next/headers"
 import { authOptions } from "@/config/auth"
 import CheckoutBreadcrumb from '@/components/checkout/CheckoutBreadcrumb'
+import OrderSummary from '@/components/checkout/OrderSummary'
 import styles from '@/styles/checkout.module.scss'
 
 export const metadata = {
@@ -31,7 +32,11 @@ const CheckoutLayout: React.FC<React.PropsWithChildren> = async ({ children }) =
             </section>
             {children}
           </div>
-          <div className="col-lg-4 bg-body-secondary" style={{ minHeight: '100vh' }}>
+          <div className="col-lg-4 bg-body-secondary p-5">
+            <section className={styles.section}>
+              <h4 className={`text-center mt-4 mb-5 ${styles.subTitle}`}>Order Summary</h4>
+              <OrderSummary />
+            </section>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import ShippingMethodForm from '@/components/checkout/ShippingMethodForm'
 import styles from '@/styles/checkout.module.scss'
 
 export const metadata = {
@@ -8,8 +9,8 @@ const ShippingMethodPage: React.FC = () => {
   return (
     <>
       <section className={styles.section}>
-        <h4 className={styles.subTitle}>Shipping Method</h4>
-        
+        <h4 className={`mb-5 ${styles.subTitle}`}>Shipping Method</h4>
+        <ShippingMethodForm />
       </section>
     </>
   )

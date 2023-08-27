@@ -4,6 +4,8 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import type { BreadcumbItem } from "@/lib/types"
 import styles from '@/styles/checkout.module.scss'
 
+export const dynamic = 'force-dynamic'
+
 type CheckoutBreadcrumbItemProps = React.FC<{ index: number, item: BreadcumbItem }>
 
 const CheckoutBreadcrumbItem: CheckoutBreadcrumbItemProps = ({ index, item }) => {

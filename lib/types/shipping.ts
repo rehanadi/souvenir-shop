@@ -22,6 +22,24 @@ export type Subdistrict = {
   subdistrict_name: string
 }
 
+export type CourierCost = {
+  value: number
+  etd?: string
+  note?: string
+}
+
+export type CourierService = {
+  service: string
+  description: string
+  cost: CourierCost[]
+}
+
+export type Courier = {
+  code: string
+  name: string
+  costs: CourierService[]
+}
+
 export type ShippingAddress = {
   firstName: string
   lastName: string
@@ -36,4 +54,10 @@ export type ShippingAddress = {
   phone: string
   company?: string
   comments?: string
+}
+
+export type ShippingMethod = {
+  courier: string,
+  service: string,
+  cost: number
 }

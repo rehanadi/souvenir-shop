@@ -1,36 +1,44 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { CartState, CartItem, ShippingAddress } from '@/lib/types'
+import type { Cart, CartItem, ShippingAddress, ShippingMethod } from '@/lib/types'
 import { updateCart } from '@/utils/cart'
 
-const cartState = { 
+export const shippingAddressState = {
+  firstName: '', 
+  lastName: '', 
+  address: '', 
+  provinceId: '', 
+  province: '', 
+  cityId: '', 
+  city: '', 
+  subdistrictId: '', 
+  subdistrict: '', 
+  postalCode: '', 
+  phone: '', 
+  company: '', 
+  comments: ''
+} as ShippingAddress
+
+export const shippingMethodState = {
+  courier: '',
+  service: '',
+  cost: 0
+} as ShippingMethod
+
+export const cartState = { 
   cartItems: [],
-  shippingAddress: {
-    firstName: '', 
-    lastName: '', 
-    address: '', 
-    provinceId: '', 
-    province: '', 
-    cityId: '', 
-    city: '', 
-    subdistrictId: '', 
-    subdistrict: '', 
-    postalCode: '', 
-    phone: '', 
-    company: '', 
-    comments: ''
-  },
-  shippingMethod: '',
+  shippingAddress: shippingAddressState,
+  shippingMethod: shippingMethodState,
   paymentMethod: '',
   itemsPrice: 0,
   shippingPrice: 0,
   totalPrice: 0
-} as CartState
+} as Cart
 
 const initialState = (
   typeof window !== "undefined" && localStorage.getItem('cart') 
   ? JSON.parse(localStorage.getItem('cart') || JSON.stringify(cartState)) 
   : cartState
-) as CartState
+) as Cart
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -56,7 +64,7 @@ const cartSlice = createSlice({
       state.shippingAddress = action.payload
       return updateCart(state)
     },
-    saveShippingMethod: (state, action: PayloadAction<string>) => {
+    saveShippingMethod: (state, action: PayloadAction<ShippingMethod>) => {
       state.shippingMethod = action.payload 
       return updateCart(state)
     },

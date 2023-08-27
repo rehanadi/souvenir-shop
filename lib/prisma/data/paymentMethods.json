@@ -1,0 +1,92 @@
+[{
+  "name": "GoPay",
+  "code": "GOPAY",
+  "image": "/assets/images/payment-methods/gopay.png",
+  "minimumAmount": 100,
+  "position": 1, 
+  "channelCode": "EWALLET"
+}, {
+  "name": "OVO",
+  "code": "OVO",
+  "image": "/assets/images/payment-methods/ovo.png",
+  "minimumAmount": 100,
+  "position": 2, 
+  "channelCode": "EWALLET"
+}, {
+  "name": "DANA",
+  "code": "DANA",
+  "image": "/assets/images/payment-methods/dana.png",
+  "minimumAmount": 100,
+  "position": 3, 
+  "channelCode": "EWALLET"
+}, {
+  "name": "ShopeePay",
+  "code": "SHOPEEPAY",
+  "image": "/assets/images/payment-methods/shopeepay.png",
+  "minimumAmount": 100,
+  "position": 4, 
+  "channelCode": "EWALLET"
+}, {
+  "name": "Bank Central Asia (BCA)",
+  "code": "BCA",
+  "image": "/assets/images/payment-methods/bca.png",
+  "minimumAmount": 10000,
+  "position": 1, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank Negara Indonesia (BNI)",
+  "code": "BNI",
+  "image": "/assets/images/payment-methods/bni.png",
+  "minimumAmount": 1,
+  "position": 2, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank Rakyat Indonesia (BRI)",
+  "code": "BRI",
+  "image": "/assets/images/payment-methods/bri.png",
+  "minimumAmount": 1,
+  "position": 3, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank Syariah Indonesia (BSI)",
+  "code": "BSI",
+  "image": "/assets/images/payment-methods/bsi.png",
+  "minimumAmount": 1,
+  "position": 4, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank CIMB Niaga",
+  "code": "CIMB",
+  "image": "/assets/images/payment-methods/cimb.png",
+  "minimumAmount": 10000,
+  "position": 5, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank Mandiri",
+  "code": "MANDIRI",
+  "image": "/assets/images/payment-methods/mandiri.png",
+  "minimumAmount": 1,
+  "position": 6, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Bank Permata",
+  "code": "PERMATA",
+  "image": "/assets/images/payment-methods/permata.png",
+  "minimumAmount": 1,
+  "position": 7, 
+  "channelCode": "BANK_TRANSFER"
+}, {
+  "name": "Alfamart",
+  "code": "ALFAMART",
+  "image": "/assets/images/payment-methods/alfamart.png",
+  "minimumAmount": 10000,
+  "position": 1, 
+  "channelCode": "RETAIL_OUTLET"
+}, {
+  "name": "Indomaret",
+  "code": "INDOMARET",
+  "image": "/assets/images/payment-methods/indomaret.png",
+  "minimumAmount": 10000,
+  "position": 2, 
+  "channelCode": "RETAIL_OUTLET"
+}]

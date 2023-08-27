@@ -124,3 +124,34 @@ model Slider {
 
   @@map(name: "sliders")
 }
+
+model PaymentChannel {
+  id             String          @id @default(cuid())
+  name           String
+  code           String          @unique
+  position       Int             @default(1)
+  isActive       Boolean         @default(true) @map(name: "is_active")
+  createdAt      DateTime        @default(now()) @map(name: "created_at")
+  updatedAt      DateTime        @updatedAt @map(name: "updated_at")
+  paymentMethods PaymentMethod[]
+
+  @@index([code])
+  @@map(name: "payment_channels")
+}
+
+model PaymentMethod {
+  id            String         @id @default(cuid())
+  name          String
+  code          String         @unique
+  image         String
+  minimumAmount Float          @default(1) @map(name: "minimum_amount")
+  position      Int            @default(1)
+  channelId     String         @map(name: "channel_id")
+  isActive      Boolean        @default(true) @map(name: "is_active")
+  createdAt     DateTime       @default(now()) @map(name: "created_at")
+  updatedAt     DateTime       @updatedAt @map(name: "updated_at")
+  channel       PaymentChannel @relation(fields: [channelId], references: [id])
+
+  @@index([code])
+  @@map(name: "payment_methods")
+}

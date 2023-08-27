@@ -1,0 +1,13 @@
+[{
+  "name": "E-Wallet",
+  "code": "EWALLET",
+  "position": 1
+}, {
+  "name": "Virtual Account",
+  "code": "BANK_TRANSFER",
+  "position": 2
+}, {
+  "name": "Retail Outlet",
+  "code": "RETAIL_OUTLET",
+  "position": 3
+}]

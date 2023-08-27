@@ -1,3 +1,5 @@
+import { ORIGIN_SUBDISTRICT_ID, DESTINATION_TYPE, WEIGHT_IN_GRAMS, COURIERS } from "../config/constants"
+
 export const getProvinces = async () => {
   const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/province`, {
     headers: {
@@ -36,4 +38,30 @@ export const getSubdistricts = async (cityId: string) => {
   const subdistricts = data?.rajaongkir?.results || []
 
   return subdistricts
+}
+
+export const getCouriers = async (subdistrictId: string) => {
+  if (!subdistrictId) throw new Error('Please complete shipping address')
+
+  const body = {
+    origin: ORIGIN_SUBDISTRICT_ID,
+    originType: DESTINATION_TYPE,
+    destination: subdistrictId,
+    destinationType: DESTINATION_TYPE,
+    weight: WEIGHT_IN_GRAMS,
+    courier: COURIERS
+  }
+
+  const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/cost`, {
+    method: 'POST',
+    headers: {
+      'key': process.env.RAJAONGKIR_API_KEY || '',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
+  const data = await res.json()
+  const couriers = data?.rajaongkir?.results || []
+
+  return couriers
 }

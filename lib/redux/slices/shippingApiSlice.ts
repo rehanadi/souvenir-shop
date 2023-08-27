@@ -11,6 +11,9 @@ export const shippingApiSlice = apiSlice.injectEndpoints({
     }),
     getSubdistricts: builder.query({
       query: (cityId: string) => `${SHIPPING_URL}/subdistricts?cityId=${cityId}`
+    }),
+    getCouriers: builder.query({
+      query: (subdistrictId: string) => `${SHIPPING_URL}/couriers?subdistrictId=${subdistrictId}`
     })
   })
 })
@@ -18,5 +21,6 @@ export const shippingApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetProvincesQuery,
   useGetCitiesQuery,
-  useGetSubdistrictsQuery
+  useGetSubdistrictsQuery,
+  useGetCouriersQuery
 } = shippingApiSlice

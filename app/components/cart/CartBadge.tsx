@@ -6,7 +6,7 @@ import styles from '@/styles/cart.module.scss'
 
 const CartBadge: React.FC = () => {
   const [domLoaded, setDomLoaded] = useState(false)
-  const { cartItems } = useSelector(state => state.cart)
+  const cartItems = useSelector(state => state.cart.cartItems)
 
   useEffect(() => {
     setDomLoaded(true)

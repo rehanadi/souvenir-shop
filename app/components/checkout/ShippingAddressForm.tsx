@@ -1,9 +1,7 @@
 'use client'
 
-import { toast } from 'react-toastify'
-import { useState } from 'react'
-import { FiArrowLeft } from 'react-icons/fi'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { useState, useEffect, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import { 
   useDispatch, 
   useSelector,
@@ -12,25 +10,54 @@ import {
   useGetSubdistrictsQuery, 
   saveShippingAddress
 } from '@/lib/redux'
+import { toast } from 'react-toastify'
 import type { Province, City, Subdistrict } from '@/lib/types'
+import Alert from "@/components/ui/Alert"
+import BackToCartLink from '@/components/checkout/BackToCartLink'
+import ContinueButton from '@/components/checkout/ContinueButton'
 import Required from '@/components/checkout/Required'
 import styles from '@/styles/checkout.module.scss'
-import Link from 'next/link'
 
 const ShippingAddressForm: React.FC = () => {
   const cart = useSelector(state => state.cart)
   const [shippingAddress, setShippingAddress] = useState(cart.shippingAddress)
 
-  const { data: dataProvinces } = useGetProvincesQuery(undefined)
+  const { data: dataProvinces, isLoading: loadingProvinces } = useGetProvincesQuery(undefined)
   const provinces: Province[] = dataProvinces?.provinces || []
 
-  const { data: dataCities } = useGetCitiesQuery(shippingAddress.provinceId)
+  const { data: dataCities, isLoading: loadingCities } = useGetCitiesQuery(shippingAddress.provinceId)
   const cities: City[] = dataCities?.cities || []
 
-  const { data: dataSubdistricts } = useGetSubdistrictsQuery(shippingAddress.cityId)
+  const { data: dataSubdistricts, isLoading: loadingSubdistricts } = useGetSubdistrictsQuery(shippingAddress.cityId)
   const subdistricts: Subdistrict[] = dataSubdistricts?.subdistricts || []
 
   const dispatch = useDispatch()
+  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+
+  const loading = loadingProvinces || loadingCities || loadingSubdistricts || isPending
+  
+  const [domLoaded, setDomLoaded] = useState(false)
+
+  useEffect(() => {
+    setDomLoaded(true)
+  }, [])
+
+  if (!domLoaded) return
+
+  if (!cart.itemsPrice) {
+    return (
+      <>
+        <Alert 
+          variant="info" 
+          text="Please fill in cart first" 
+        />
+        <div className='mt-4'>
+          <BackToCartLink />
+        </div>
+      </>
+    )
+  }
 
   type ChangeEvent = (
     React.ChangeEvent<HTMLInputElement> | 
@@ -93,7 +120,6 @@ const ShippingAddressForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Validate form data
     if (
       !shippingAddress.firstName || !shippingAddress.lastName ||
       !shippingAddress.address || !shippingAddress.provinceId ||
@@ -104,9 +130,11 @@ const ShippingAddressForm: React.FC = () => {
       return
     }
 
-    // Save shipping address
     dispatch(saveShippingAddress(shippingAddress))
     toast.success('Shipping address have been saved')
+    startTransition(() => {
+      router.push('/checkout/shipping-method')
+    })
   }
 
   return (
@@ -267,19 +295,11 @@ const ShippingAddressForm: React.FC = () => {
       </div>
 
       <div className={`form-group mt-5 d-flex justify-content-between ${styles.formRow}`}>
-        <span className='text-success'>
-          <FiArrowLeft />
-          {' '}
-          <Link href='/cart'>
-            Return to cart
-          </Link>
-        </span>
-        <Link 
-          href='/checkout/shipping-method' 
-          className={`btn btn-success ${styles.linkBtn}`}
-        >
-          Continue to shipping method <MdOutlineKeyboardArrowRight />
-        </Link>
+        <BackToCartLink />
+        <ContinueButton 
+          text='Continue to shipping method' 
+          disabled={loading} 
+        />
       </div>
     </form>
   )

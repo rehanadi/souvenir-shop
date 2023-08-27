@@ -3,9 +3,11 @@ import user from './data/user.json'
 import categories from './data/categories.json'
 import products from './data/products.json'
 import sliders from './data/sliders.json'
+import paymentChannels from './data/paymentChannels.json'
+import paymentMethods from './data/paymentMethods.json'
 
 const prisma = new PrismaClient()
-const adminEmail: string = 'admin@rehan.id'
+const ADMIN_EMAIL: string = 'admin@rehan.id'
 
 const seedUser = async () => {
   console.log('--- Start seeding user data ---')
@@ -30,7 +32,7 @@ const seedCategories = async () => {
         slug: category.slug,
         createdByUser: {
           connect: {
-            email: adminEmail
+            email: ADMIN_EMAIL
           }
         }
       }
@@ -59,7 +61,7 @@ const seedProducts = async () => {
         remainStock: product.baseStock,
         createdByUser: {
           connect: {
-            email: adminEmail
+            email: ADMIN_EMAIL
           }
         },
         categories: {
@@ -91,11 +93,58 @@ const seedSliders = async () => {
   console.log('Seeding sliders data finished')
 }
 
+const seedPaymentChannels = async () => {
+  console.log('--- Start seeding payment channels data ---')
+
+  await prisma.paymentChannel.deleteMany()
+  for (const paymentChannel of paymentChannels) {
+    await prisma.paymentChannel.create({
+      data: {
+        name: paymentChannel.name,
+        code: paymentChannel.code,
+        position: paymentChannel.position
+      }
+    })
+
+    console.log('Created payment channel', paymentChannel.name)
+  }
+  
+  console.log('Seeding payment channels finished')
+}
+
+const seedPaymentMethods = async () => {
+  console.log('--- Start seeding payment methods data ---')
+
+  await prisma.paymentMethod.deleteMany()
+  for (const paymentMethod of paymentMethods) {
+    await prisma.paymentMethod.create({
+      data: {
+        name: paymentMethod.name,
+        code: paymentMethod.code,
+        image: paymentMethod.image,
+        minimumAmount: paymentMethod.minimumAmount,
+        position: paymentMethod.position,
+        channel: {
+          connect: {
+            code: paymentMethod.channelCode
+          }
+        }
+      }
+    })
+
+    console.log('Created payment method', paymentMethod.name)
+  }
+  
+  console.log('Seeding payment methods finished')
+}
+
 const main = async () => {
   await seedUser()
   await seedCategories()
   await seedProducts()
   await seedSliders()
+  await seedPaymentChannels()
+  await seedPaymentMethods()
 }
 
 main()
