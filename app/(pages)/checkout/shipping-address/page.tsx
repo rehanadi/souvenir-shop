@@ -10,11 +10,11 @@ const ShippingAddressPage: React.FC = () => {
   return (
     <>
       <section className={styles.section}>
-        <h4 className={styles.subTitle}>Customer information</h4>
+        <h4 className={styles.sectionTitle}>Customer information</h4>
         <CustomerInfo />
       </section>
       <section className={styles.section}>
-        <h4 className={styles.subTitle}>Shipping address</h4>
+        <h4 className={styles.sectionTitle}>Shipping address</h4>
         <ShippingAddressForm />
       </section>
     </>

@@ -1,13 +1,14 @@
 'use client'
 
+import Link from "next/link"
 import { useState, useEffect } from "react"
 import { useSelector } from "@/lib/redux"
 import Spinner from "@/components/ui/Spinner"
 import CartItem from "@/components/cart/CartItem"
 
 const CartList: React.FC = () => {
+  const { cartItems, itemsPrice } = useSelector(state => state.cart)
   const [domLoaded, setDomLoaded] = useState(false)
-  const cart = useSelector(state => state.cart)
 
   useEffect(() => {
     setDomLoaded(true)
@@ -15,9 +16,19 @@ const CartList: React.FC = () => {
 
   if (!domLoaded) return <Spinner />
 
+  if (!itemsPrice) {
+    return (
+      <div>
+        Fill your cart with our best
+        {' '}
+        <Link href='/products' className="text-success">products</Link>
+      </div>
+    )
+  }
+
   return (
     <ul className='list-group list-group-flush'>
-      {cart?.cartItems?.map(item => (
+      {cartItems.map(item => (
         <li key={item.id} className='list-group-item'>
           <CartItem item={item} />
         </li>

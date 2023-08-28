@@ -57,6 +57,7 @@ model User {
   updatedProducts   Product[]  @relation("UpdatedProducts")
   createdCategories Category[] @relation("CreatedCategories")
   updatedCategories Category[] @relation("UpdatedCategories")
+  orders            Order[]    @relation("Orders")
 
   @@map(name: "users")
 }
@@ -71,26 +72,27 @@ model VerificationToken {
 }
 
 model Product {
-  id            String     @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String
-  slug          String     @unique
+  slug          String      @unique
   image         String?
   description   String?
-  price         Float      @default(0)
-  isUseStock    Boolean    @default(false) @map(name: "is_use_stock")
-  baseStock     Float      @default(0) @map(name: "base_stock")
-  usedStock     Float      @default(0) @map(name: "used_stock")
-  remainStock   Float      @default(0) @map(name: "remain_stock")
-  rating        Float      @default(0)
-  reviewsCount  Float      @default(0) @map(name: "reviews_count")
-  isActive      Boolean    @default(true) @map(name: "is_active")
-  createdBy     String?    @map(name: "created_by")
-  createdAt     DateTime   @default(now()) @map(name: "created_at")
-  updatedBy     String?    @map(name: "updated_by")
-  updatedAt     DateTime   @updatedAt @map(name: "updated_at")
-  createdByUser User?      @relation("CreatedProducts", fields: [createdBy], references: [id])
-  updatedByUser User?      @relation("UpdatedProducts", fields: [updatedBy], references: [id])
+  price         Float       @default(0)
+  isUseStock    Boolean     @default(false) @map(name: "is_use_stock")
+  baseStock     Float       @default(0) @map(name: "base_stock")
+  usedStock     Float       @default(0) @map(name: "used_stock")
+  remainStock   Float       @default(0) @map(name: "remain_stock")
+  rating        Float       @default(0)
+  reviewsCount  Float       @default(0) @map(name: "reviews_count")
+  isActive      Boolean     @default(true) @map(name: "is_active")
+  createdBy     String?     @map(name: "created_by")
+  createdAt     DateTime    @default(now()) @map(name: "created_at")
+  updatedBy     String?     @map(name: "updated_by")
+  updatedAt     DateTime    @updatedAt @map(name: "updated_at")
+  createdByUser User?       @relation("CreatedProducts", fields: [createdBy], references: [id])
+  updatedByUser User?       @relation("UpdatedProducts", fields: [updatedBy], references: [id])
   categories    Category[]
+  orderItems    OrderItem[]
 
   @@index([slug])
   @@map(name: "products")
@@ -154,4 +156,68 @@ model PaymentMethod {
 
   @@index([code])
   @@map(name: "payment_methods")
+}
+
+model Order {
+  id                String          @id @default(uuid())
+  userId            String          @map(name: "user_id")
+  itemsPrice        Float           @default(0) @map(name: "items_price")
+  shippingPrice     Float           @default(0) @map(name: "shipping_price")
+  totalPrice        Float           @default(0) @map(name: "total_price")
+  paymentMethod     String          @map(name: "payment_method")
+  paymentResult     Json?           @default("{}") @map(name: "payment_result")
+  paymentStatus     String          @default("PENDING") @map(name: "payment_status")
+  paymentDate       DateTime?       @map(name: "payment_date")
+  shippingAddressId String          @unique
+  shippingCourier   String          @map(name: "shipping_courier")
+  shippingService   String          @map(name: "shipping_service")
+  shippingStatus    String          @default("PENDING") @map(name: "shipping_status")
+  shippingDate      DateTime?       @map(name: "shipping_date")
+  createdAt         DateTime        @default(now()) @map(name: "created_at")
+  updatedAt         DateTime        @updatedAt @map(name: "updated_at")
+  user              User            @relation("Orders", fields: [userId], references: [id])
+  items             OrderItem[]
+  shippingAddress   ShippingAddress @relation(fields: [shippingAddressId], references: [id])
+
+  @@index([shippingAddressId])
+  @@map(name: "orders")
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String   @map(name: "order_id")
+  productId String   @map(name: "product_id")
+  name      String
+  image     String?
+  price     Float    @default(0)
+  qty       Float    @default(0)
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@index([orderId])
+  @@map(name: "order_items")
+}
+
+model ShippingAddress {
+  id            String   @id @default(cuid())
+  firstName     String   @map(name: "first_name")
+  lastName      String   @map(name: "last_name")
+  address       String
+  provinceId    String   @map(name: "province_id")
+  province      String
+  cityId        String   @map(name: "city_id")
+  city          String
+  subdistrictId String   @map(name: "subdistrict_id")
+  subdistrict   String
+  postalCode    String   @map(name: "postal_code")
+  phone         String
+  company       String?
+  comments      String?
+  createdAt     DateTime @default(now()) @map(name: "created_at")
+  updatedAt     DateTime @updatedAt @map(name: "updated_at")
+  order         Order?
+
+  @@map(name: "shipping_addresses")
 }

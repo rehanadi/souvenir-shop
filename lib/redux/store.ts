@@ -8,7 +8,7 @@ import {
 import { reducer } from './rootReducer'
 import { middleware } from './middleware'
 
-export const reduxStore = configureStore({
+export const store = configureStore({
   reducer,
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(middleware)
@@ -18,6 +18,6 @@ export const reduxStore = configureStore({
 export const useDispatch = () => useReduxDispatch<ReduxDispatch>()
 export const useSelector: TypedUseSelectorHook<ReduxState> = useReduxSelector
 
-export type ReduxStore = typeof reduxStore
-export type ReduxState = ReturnType<typeof reduxStore.getState>
-export type ReduxDispatch = typeof reduxStore.dispatch
+export type ReduxStore = typeof store
+export type ReduxState = ReturnType<typeof store.getState>
+export type ReduxDispatch = typeof store.dispatch

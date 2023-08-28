@@ -9,7 +9,7 @@ const ShippingMethodPage: React.FC = () => {
   return (
     <>
       <section className={styles.section}>
-        <h4 className={`mb-5 ${styles.subTitle}`}>Shipping Method</h4>
+        <h4 className={`mb-5 ${styles.sectionTitle}`}>Shipping Method</h4>
         <ShippingMethodForm />
       </section>
     </>

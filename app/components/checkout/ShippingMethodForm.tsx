@@ -16,6 +16,7 @@ import ContinueButton from '@/components/checkout/ContinueButton'
 import type { Courier } from "@/lib/types"
 import { formatPrice } from "@/utils/products"
 import { formatCourier } from "@/utils/shipping"
+import styles from '@/styles/checkout.module.scss'
 
 const ShippingMethodForm: React.FC = () => {
   const cart = useSelector(state => state.cart)
@@ -78,7 +79,7 @@ const ShippingMethodForm: React.FC = () => {
     <form onSubmit={handleSubmit}>
       {couriers.map(courier => (
         <section key={courier.code} className="mb-4">
-          <h5 style={{ fontSize: '1rem', fontWeight: '500' }}>{courier.name}</h5>
+          <h5 className={styles.subSectionTitle}>{courier.name}</h5>
           <div className='list-group list-group-flush'>
             {courier.costs.map(service => (
               <label key={service.service} className='list-group-item'>

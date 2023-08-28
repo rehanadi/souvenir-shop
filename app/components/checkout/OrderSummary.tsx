@@ -3,11 +3,10 @@
 import { useState, useEffect } from "react"
 import { useSelector } from '@/lib/redux'
 import { formatPrice } from '@/lib/utils/products'
-import styles from '@/styles/checkout.module.scss'
 
 const OrderSummary: React.FC = () => {
-  const [domLoaded, setDomLoaded] = useState(false)
   const cart = useSelector(state => state.cart)
+  const [domLoaded, setDomLoaded] = useState(false)
 
   useEffect(() => {
     setDomLoaded(true)
@@ -17,7 +16,7 @@ const OrderSummary: React.FC = () => {
 
   return (
     <>
-      {cart?.cartItems?.length > 0 && (
+      {cart.cartItems.length > 0 && (
         <table className='table table-borderless mb-5'>
           <thead>
             <tr>
@@ -27,7 +26,7 @@ const OrderSummary: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {cart?.cartItems.map(item => (
+            {cart.cartItems.map(item => (
               <tr key={item.id}>
                 <td className="bg-body-secondary">{item.name}</td>
                 <td className="bg-body-secondary text-right">{item.qty}</td>
@@ -42,15 +41,15 @@ const OrderSummary: React.FC = () => {
         <tbody>
           <tr>
             <td className="bg-body-secondary" style={{ fontWeight: '500' }}>Subtotal:</td>
-            <td className="bg-body-secondary text-right">{formatPrice(cart?.itemsPrice || 0)}</td>
+            <td className="bg-body-secondary text-right">{cart.itemsPrice ? formatPrice(cart.itemsPrice || 0) : '-'}</td>
           </tr>
           <tr>
             <td className="bg-body-secondary" style={{ fontWeight: '500' }}>Shipping:</td>
-            <td className="bg-body-secondary text-right">{cart?.shippingPrice ? formatPrice(cart?.shippingPrice || 0) : '-'}</td>
+            <td className="bg-body-secondary text-right">{cart.shippingPrice ? formatPrice(cart.shippingPrice || 0) : '-'}</td>
           </tr>
           <tr>
             <td className="bg-body-secondary" style={{ fontWeight: '600', fontSize: '1.1rem' }}>Total:</td>
-            <td className="bg-body-secondary text-right">{formatPrice(cart?.totalPrice || 0)}</td>
+            <td className="bg-body-secondary text-right">{cart.totalPrice ? formatPrice(cart.totalPrice || 0) : '-'}</td>
           </tr>
         </tbody>
       </table>

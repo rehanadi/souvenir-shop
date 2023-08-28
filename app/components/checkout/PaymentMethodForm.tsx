@@ -9,12 +9,14 @@ import Alert from "@/components/ui/Alert"
 import Spinner from '@/components/ui/Spinner'
 import BackToShippingMethodLink from '@/components/checkout/BackToShippingMethodLink'
 import ContinueButton from '@/components/checkout/ContinueButton'
+import { formatPrice } from "@/utils/products"
+import styles from '@/styles/checkout.module.scss'
 
 const PaymentMethodForm: React.FC = () => {
   const { data, isLoading, error } = useGetPaymentChannelsQuery(undefined)
   const channels: PaymentChannel[] = data?.paymentChannels || []
 
-  const { shippingAddress, shippingMethod, paymentMethod } = useSelector(state => state.cart)
+  const { shippingAddress, shippingMethod, paymentMethod, totalPrice } = useSelector(state => state.cart)
 
   const dispatch = useDispatch()
   const router = useRouter()
@@ -48,7 +50,12 @@ const PaymentMethodForm: React.FC = () => {
   if (error) return <Alert />
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(savePaymentMethod(e.target.value))
+    const value = e.target.value
+    const name = value.split('|')[0]
+    const code = value.split('|')[1]
+    const minimumAmount = Number(value.split('|')[2]) || 1
+
+    dispatch(savePaymentMethod({ name, code, minimumAmount }))
     toast.success('Payment method have been updated')
   }
 
@@ -64,6 +71,9 @@ const PaymentMethodForm: React.FC = () => {
     } else if (!paymentMethod) {
       toast.error('Please choose payment method!')
       return
+    } else if (totalPrice < paymentMethod.minimumAmount) {
+      toast.error(`Total amount must be equal or larger than ${formatPrice(paymentMethod.minimumAmount)}!`)
+      return
     }
 
     // Complete order
@@ -77,19 +87,19 @@ const PaymentMethodForm: React.FC = () => {
     <form onSubmit={handleSubmit}>
       {channels.map(channel => (
         <section key={channel.code} className="mb-4">
-        <h5 style={{ fontSize: '1rem', fontWeight: '500' }}>{channel.name}</h5>
-        <div className='list-group list-group-flush'>
+        <h5 className={styles.subSectionTitle}>{channel.name}</h5>
+        <div className="row mb-5">
           {channel.paymentMethods.map(method => (
-            <label key={method.code} className='list-group-item py-3'>
+            <label key={method.code} className='col-4 py-4'>
               <input 
                 className='form-check-input me-3' 
                 type='radio' 
                 name='paymentMethod' 
-                value={method.code}
+                value={`${method.name}|${method.code}|${method.minimumAmount}`}
                 onChange={handleChange}
-                checked={method.code === paymentMethod}
+                checked={method.code === paymentMethod.code}
               />
-              <img src={method.image} alt={method.name} />
+              <img src={method.image} alt={method.name} title={method.name} />
             </label>
           ))}
         </div>

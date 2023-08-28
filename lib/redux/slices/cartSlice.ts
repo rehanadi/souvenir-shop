@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { Cart, CartItem, ShippingAddress, ShippingMethod } from '@/lib/types'
+import type { Cart, CartItem, ShippingAddress, ShippingMethod, PaymentMethod } from '@/lib/types'
 import { updateCart } from '@/utils/cart'
 
 export const shippingAddressState = {
@@ -24,11 +24,17 @@ export const shippingMethodState = {
   cost: 0
 } as ShippingMethod
 
+export const paymentMethodState = {
+  name: '',
+  code: '',
+  minimumAmount: 1
+} as PaymentMethod
+
 export const cartState = { 
   cartItems: [],
   shippingAddress: shippingAddressState,
   shippingMethod: shippingMethodState,
-  paymentMethod: '',
+  paymentMethod: paymentMethodState,
   itemsPrice: 0,
   shippingPrice: 0,
   totalPrice: 0
@@ -68,7 +74,7 @@ const cartSlice = createSlice({
       state.shippingMethod = action.payload 
       return updateCart(state)
     },
-    savePaymentMethod: (state, action: PayloadAction<string>) => {
+    savePaymentMethod: (state, action: PayloadAction<PaymentMethod>) => {
       state.paymentMethod = action.payload 
       return updateCart(state)
     },

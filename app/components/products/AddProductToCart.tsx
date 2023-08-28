@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import { useDispatch, addToCart } from "@/lib/redux"
+import type { Product, CartItem } from "@/lib/types"
 import useQty from '@/hooks/useQty'
-import type { Product } from "@/lib/types"
 import RemainStock from '@/components/products/RemainStock'
 import AddToCartButton from "@/components/cart/AddToCartButton"
 
@@ -33,8 +33,19 @@ const AddProductToCart: AddProductToCartProps = ({ product }) => {
       return
     }
 
-    dispatch(addToCart({ ...product, qty }))
-    toast.success(`Product “${product?.name}” have been added to your cart`)
+    const cartItem: CartItem = {
+      id: product.id, 
+      name: product.name, 
+      slug: product.slug, 
+      image: product.image || '', 
+      price: product.price, 
+      isUseStock: product.isUseStock, 
+      remainStock: product.remainStock, 
+      qty
+    }
+
+    dispatch(addToCart(cartItem))
+    toast.success(`Product “${product.name}” have been added to your cart`)
     setQty(minimalQty)
   }
 
