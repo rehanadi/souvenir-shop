@@ -9,6 +9,6 @@ export async function GET(request: NextRequest) {
     
     return NextResponse.json({ couriers }, { status: 200 })
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json({ message: error.message }, { status: 400 })
   }
 }

@@ -6,7 +6,7 @@ import { Category } from "@prisma/client"
 import styles from '@/styles/categories.module.scss'
 
 const CategoryList: React.FC = () => {
-  const { data } = useGetCategoriesQuery(undefined)
+  const { data } = useGetCategoriesQuery(null)
   const categories: Category[] = data?.categories || []
 
   return (

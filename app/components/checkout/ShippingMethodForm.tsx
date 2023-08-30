@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useTransition } from "react"
 import { useRouter } from 'next/navigation'
 import { 
   useDispatch, 
@@ -28,6 +28,9 @@ const ShippingMethodForm: React.FC = () => {
 
   const dispatch = useDispatch()
   const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+
+  const loading = isLoading || isPending
   
   const [domLoaded, setDomLoaded] = useState(false)
 
@@ -60,6 +63,7 @@ const ShippingMethodForm: React.FC = () => {
     const service = value.split('|')[1]
     const cost = Number(value.split('|')[2]) || 0
 
+    // Save shipping method
     dispatch(saveShippingMethod({ courier, service, cost }))
     toast.success('Shipping method have been updated')
   }
@@ -72,7 +76,9 @@ const ShippingMethodForm: React.FC = () => {
       return
     }
     
-    router.push('/checkout/payment-method')
+    startTransition(() => {
+      router.push('/checkout/payment-method')
+    })
   }
 
   return (
@@ -113,7 +119,7 @@ const ShippingMethodForm: React.FC = () => {
         <BackToShippingAddressLink />
         <ContinueButton 
           text='Continue to payment method' 
-          disabled={isLoading} 
+          disabled={loading} 
         />
       </div>
     </form>

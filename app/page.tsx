@@ -12,7 +12,7 @@ export default function IndexPage() {
         <div className='container'>
           <h1 className="py-5 text-center">Featured Products</h1>
           <Suspense fallback={<Spinner />}>
-            <div className={styles.wrapper}>
+            <div className='wrapper'>
               <TopProductList />
             </div>
           </Suspense>

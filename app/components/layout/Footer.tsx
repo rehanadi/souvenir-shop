@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="container">{SITE_TITLE} &copy; {new Date().getFullYear()}</div>
       </footer>
       <Script src='/assets/js/bootstrap.bundle.min.js' />
-      <ToastContainer />
+      <ToastContainer position='bottom-right' />
     </>
   )
 }

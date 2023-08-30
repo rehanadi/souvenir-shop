@@ -1,3 +1,5 @@
+import { formatAmount } from "@/utils/products"
+
 type RemainStockProps = React.FC<{ isUseStock?: boolean, remainStock?: number }>
 
 const RemainStock: RemainStockProps = ({ isUseStock = false, remainStock = 0 }) => {
@@ -8,7 +10,7 @@ const RemainStock: RemainStockProps = ({ isUseStock = false, remainStock = 0 }) 
           Stock:
           {' '}
           <span className='text-success'>
-            {remainStock}
+            {formatAmount(remainStock)}
           </span>
         </>
       )}

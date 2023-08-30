@@ -2,7 +2,9 @@ import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import type { NextAuthOptions } from 'next-auth'
+import type { AuthErrorMessages } from '@/lib/types'
 import prisma from '@/lib/prisma/client'
+import { getSubSession } from '@/utils/auth'
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -21,11 +23,17 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt'
+  },
+  callbacks: {
+    jwt: async ({ token, user }) => {
+      if (user) token.id = user.id
+      return token
+    },
+    session: async ({ session, token }) => {
+      if (!session?.user) return session
+      return getSubSession(session, String(token.id))
+    }
   }
-}
-
-type AuthErrorMessages = {
-  [key: string]: string
 }
 
 export const authErrorMessages = {

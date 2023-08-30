@@ -45,7 +45,7 @@ const CategoryPage: CategoryPageProps = ({ params: { slug } }) => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className={styles.wrapper}>
+      <div className='wrapper'>
         <div className="row">
           <div className="col-12">
             <h1 className="mt-3 mb-5" style={{ fontSize: '1.5rem' }}>

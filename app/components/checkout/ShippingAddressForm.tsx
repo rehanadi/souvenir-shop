@@ -22,7 +22,7 @@ const ShippingAddressForm: React.FC = () => {
   const cart = useSelector(state => state.cart)
   const [shippingAddress, setShippingAddress] = useState(cart.shippingAddress)
 
-  const { data: dataProvinces, isLoading: loadingProvinces } = useGetProvincesQuery(undefined)
+  const { data: dataProvinces, isLoading: loadingProvinces } = useGetProvincesQuery(null)
   const provinces: Province[] = dataProvinces?.provinces || []
 
   const { data: dataCities, isLoading: loadingCities } = useGetCitiesQuery(shippingAddress.provinceId)
@@ -120,6 +120,7 @@ const ShippingAddressForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
+    // Validate shipping address
     if (
       !shippingAddress.firstName || !shippingAddress.lastName ||
       !shippingAddress.address || !shippingAddress.provinceId ||
@@ -130,9 +131,9 @@ const ShippingAddressForm: React.FC = () => {
       return
     }
 
-    dispatch(saveShippingAddress(shippingAddress))
-    toast.success('Shipping address have been saved')
     startTransition(() => {
+      dispatch(saveShippingAddress(shippingAddress))
+      toast.success('Shipping address have been saved')
       router.push('/checkout/shipping-method')
     })
   }

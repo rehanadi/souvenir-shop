@@ -2,7 +2,6 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from "next-auth"
 import { headers } from "next/headers"
 import { authOptions } from "@/config/auth"
-import { store } from '@/lib/redux'
 import CheckoutBreadcrumb from '@/components/checkout/CheckoutBreadcrumb'
 import OrderSummary from '@/components/checkout/OrderSummary'
 import styles from '@/styles/checkout.module.scss'
@@ -22,11 +21,9 @@ const CheckoutLayout: React.FC<React.PropsWithChildren> = async ({ children }) =
     redirect(`/signin?callbackUrl=${callbackUrl}`)
   }
 
-  if (!store.getState().cart.itemsPrice) redirect('/cart')
-
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className='wrapper'>
         <div className="row mt-5">
           <div className="col-lg-8" style={{ paddingRight: '2rem' }}>
             <section style={{ marginBottom: '5rem' }}>
@@ -37,7 +34,7 @@ const CheckoutLayout: React.FC<React.PropsWithChildren> = async ({ children }) =
           </div>
           <div className="col-lg-4 bg-body-secondary p-5">
             <section className={styles.section}>
-              <h4 className={`text-center mt-4 mb-5 ${styles.sectionTitle}`}>Order Summary</h4>
+              <h4 className={`text-center mt-4 mb-5 ${styles.sectionTitle}`}>Order summary</h4>
               <OrderSummary />
             </section>
           </div>

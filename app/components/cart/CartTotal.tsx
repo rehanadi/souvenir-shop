@@ -19,7 +19,7 @@ const CartTotal: React.FC = () => {
   return (
     <div className="card">
       <div className='card-body px-4 py-5'>
-        <h4 className='card-title pb-5'>Cart total</h4>
+        <h4 className='card-title text-center pb-5'>Cart total</h4>
         <div className="pb-5 d-flex justify-content-between">
           <span style={{ fontWeight: '500' }}>Total:</span>
           <span>{formatPrice(itemsPrice)}</span>

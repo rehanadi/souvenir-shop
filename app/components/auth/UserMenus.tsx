@@ -35,7 +35,7 @@ const UserMenus: UserMenusProps = ({ session: { user } }) => {
           </Link>
         </li>
         <li>
-          <Link className='dropdown-item' href='/account/orders'>
+          <Link className='dropdown-item' href='/orders'>
             <span className={styles.btnIcon}>
               <HiOutlineShoppingBag />
             </span>
@@ -44,7 +44,7 @@ const UserMenus: UserMenusProps = ({ session: { user } }) => {
           </Link>
         </li>
         <li>
-          <Link className='dropdown-item' href='/account/wishlist'>
+          <Link className='dropdown-item' href='/wishlist'>
             <span className={styles.btnIcon}>
               <GrFavorite />
             </span>

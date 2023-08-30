@@ -4,13 +4,13 @@ import type { BreadcumbItems } from "@/lib/types"
 const CheckoutBreadcrumb: React.FC = () => {
 
   const breadcrumbItems: BreadcumbItems = [{
-    name: 'Shipping Address',
+    name: 'Shipping address',
     url: '/checkout/shipping-address'
   }, {
-    name: 'Shipping Method',
+    name: 'Shipping method',
     url: '/checkout/shipping-method'
   }, {
-    name: 'Payment Method',
+    name: 'Payment method',
     url: '/checkout/payment-method'
   }]
 

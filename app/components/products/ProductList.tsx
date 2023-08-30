@@ -5,7 +5,7 @@ import type { Product } from '@/lib/types'
 import ProductItem from '@/components/products/ProductItem'
 
 const ProductList: React.FC = () => {
-  const { data } = useGetProductsQuery(undefined)
+  const { data } = useGetProductsQuery(null)
   const products: Product[] = data?.products || []
   
   return (

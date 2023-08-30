@@ -153,6 +153,7 @@ model PaymentMethod {
   createdAt     DateTime       @default(now()) @map(name: "created_at")
   updatedAt     DateTime       @updatedAt @map(name: "updated_at")
   channel       PaymentChannel @relation(fields: [channelId], references: [id])
+  orders        Order[]
 
   @@index([code])
   @@map(name: "payment_methods")
@@ -164,11 +165,11 @@ model Order {
   itemsPrice        Float           @default(0) @map(name: "items_price")
   shippingPrice     Float           @default(0) @map(name: "shipping_price")
   totalPrice        Float           @default(0) @map(name: "total_price")
-  paymentMethod     String          @map(name: "payment_method")
+  paymentMethodId   String          @map(name: "payment_method_id")
   paymentResult     Json?           @default("{}") @map(name: "payment_result")
   paymentStatus     String          @default("PENDING") @map(name: "payment_status")
   paymentDate       DateTime?       @map(name: "payment_date")
-  shippingAddressId String          @unique
+  shippingAddressId String          @unique @map(name: "shipping_address_id")
   shippingCourier   String          @map(name: "shipping_courier")
   shippingService   String          @map(name: "shipping_service")
   shippingStatus    String          @default("PENDING") @map(name: "shipping_status")
@@ -176,8 +177,9 @@ model Order {
   createdAt         DateTime        @default(now()) @map(name: "created_at")
   updatedAt         DateTime        @updatedAt @map(name: "updated_at")
   user              User            @relation("Orders", fields: [userId], references: [id])
-  items             OrderItem[]
+  paymentMethod     PaymentMethod   @relation(fields: [paymentMethodId], references: [id])
   shippingAddress   ShippingAddress @relation(fields: [shippingAddressId], references: [id])
+  items             OrderItem[]
 
   @@index([shippingAddressId])
   @@map(name: "orders")

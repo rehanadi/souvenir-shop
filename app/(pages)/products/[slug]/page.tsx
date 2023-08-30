@@ -50,7 +50,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className={styles.wrapper}>
+      <div className='wrapper'>
         <div className="row">
           <div className="col-5">
             <div className={styles.fullImageContainer}>

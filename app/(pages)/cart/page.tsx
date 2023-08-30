@@ -7,6 +7,7 @@ import styles from '@/styles/cart.module.scss'
 export const metadata = {
   title: 'Cart'
 }
+
 const CartPage: React.FC = () => {
   const breadcrumbItems = [{
     name: 'Cart'
@@ -15,7 +16,7 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Breadcrumb items={breadcrumbItems} />
-      <div className={styles.wrapper}>
+      <div className='wrapper'>
         <div className="row">
           <div className="col-12">
             <h1 className="mt-3 mb-5">Cart</h1>

@@ -2,27 +2,37 @@
 
 import { useState, useEffect, useTransition } from "react"
 import { useRouter } from 'next/navigation'
-import { useDispatch, useSelector, useGetPaymentChannelsQuery, savePaymentMethod } from "@/lib/redux"
+import { 
+  useDispatch, 
+  useSelector, 
+  useGetPaymentChannelsQuery, 
+  savePaymentMethod,
+  useCreateOrderMutation,
+  clearCart
+} from "@/lib/redux"
 import { toast } from 'react-toastify'
 import type { PaymentChannel } from "@/lib/types"
 import Alert from "@/components/ui/Alert"
 import Spinner from '@/components/ui/Spinner'
 import BackToShippingMethodLink from '@/components/checkout/BackToShippingMethodLink'
 import ContinueButton from '@/components/checkout/ContinueButton'
-import { formatPrice } from "@/utils/products"
 import styles from '@/styles/checkout.module.scss'
 
 const PaymentMethodForm: React.FC = () => {
-  const { data, isLoading, error } = useGetPaymentChannelsQuery(undefined)
+  const cart = useSelector(state => state.cart)
+  const { shippingMethod, paymentMethod } = cart
+
+  const { data, isLoading: loadingChannels, error: errorChannels } = useGetPaymentChannelsQuery(null)
   const channels: PaymentChannel[] = data?.paymentChannels || []
 
-  const { shippingAddress, shippingMethod, paymentMethod, totalPrice } = useSelector(state => state.cart)
+  const [createOrder, { isLoading: loadingOrder, error: errorOrder }] = useCreateOrderMutation()
+  const errorOrderMsg = errorOrder ? JSON.parse(JSON.stringify(errorOrder))['data']['message'] : null
 
   const dispatch = useDispatch()
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   
-  const loading = isLoading || isPending
+  const loading = loadingChannels || loadingOrder || isPending
   
   const [domLoaded, setDomLoaded] = useState(false)
 
@@ -46,8 +56,8 @@ const PaymentMethodForm: React.FC = () => {
     )
   }
 
-  if (isLoading) return <Spinner />
-  if (error) return <Alert />
+  if (loadingChannels) return <Spinner />
+  if (errorChannels) return <Alert />
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -55,32 +65,25 @@ const PaymentMethodForm: React.FC = () => {
     const code = value.split('|')[1]
     const minimumAmount = Number(value.split('|')[2]) || 1
 
+    // Save payment method
     dispatch(savePaymentMethod({ name, code, minimumAmount }))
     toast.success('Payment method have been updated')
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
-    if (!shippingAddress.subdistrictId) {
-      toast.error('Please complete shipping address!')
-      return
-    } else if (!shippingMethod.courier) {
-      toast.error('Please choose shipping method!')
-      return
-    } else if (!paymentMethod) {
-      toast.error('Please choose payment method!')
-      return
-    } else if (totalPrice < paymentMethod.minimumAmount) {
-      toast.error(`Total amount must be equal or larger than ${formatPrice(paymentMethod.minimumAmount)}!`)
-      return
-    }
 
-    // Complete order
-    toast.success('Complete order')
-    startTransition(() => {
-      router.refresh()
-    })
+    try {
+      const { order } = await createOrder(cart).unwrap()
+      
+      startTransition(() => {
+        dispatch(clearCart(null))
+        toast.success('Order have been created')
+        router.push(`/orders/${order.id}`)
+      })
+    } catch (error: any) {
+      toast.error(error.data.message)
+    }
   }
 
   return (
@@ -112,6 +115,11 @@ const PaymentMethodForm: React.FC = () => {
           disabled={loading} 
         />
       </div>
+      {errorOrderMsg && (
+        <div className="mt-5">
+          <Alert text={errorOrderMsg} />
+        </div>
+      )}
     </form>
   )
 }
