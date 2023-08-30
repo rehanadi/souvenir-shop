@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { useSelector } from '@/lib/redux'
+import { useSelector } from '@/redux'
 import { formatPrice } from '@/lib/utils/products'
 
 const OrderSummary: React.FC = () => {

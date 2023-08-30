@@ -1,11 +1,10 @@
 'use client'
 
-import { useGetOrderByIdQuery } from "@/lib/redux"
-import type { Order } from "@prisma/client"
+import { useGetOrderByIdQuery } from "@/redux"
 import { formatPrice } from "@/lib/utils/products"
 import Spinner from "@/components/ui/Spinner"
 import PaymentButton from "@/components/orders/PaymentButton"
-import { PaymentStatus } from "@/lib/types"
+import { PaymentStatus, type Order } from "@/lib/types"
 
 type OrderSummaryProps = React.FC<{ id: string }>
 
@@ -34,7 +33,7 @@ const OrderSummary: OrderSummaryProps = ({ id }) => {
         {order.paymentStatus === PaymentStatus.PENDING && (
           <div className='card-text pt-5'>
             <div className='d-grid gap-2'>
-              <PaymentButton />
+              <PaymentButton order={order} />
             </div>
           </div>
         )}

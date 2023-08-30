@@ -9,8 +9,9 @@ import {
   savePaymentMethod,
   useCreateOrderMutation,
   clearCart
-} from "@/lib/redux"
+} from "@/redux"
 import { toast } from 'react-toastify'
+import type { Order } from "@prisma/client"
 import type { PaymentChannel } from "@/lib/types"
 import Alert from "@/components/ui/Alert"
 import Spinner from '@/components/ui/Spinner'
@@ -42,7 +43,7 @@ const PaymentMethodForm: React.FC = () => {
 
   if (!domLoaded) return
 
-  if (!shippingMethod.courier) {
+  if (!shippingMethod.courier && !isPending) {
     return (
       <>
         <Alert 
@@ -59,54 +60,53 @@ const PaymentMethodForm: React.FC = () => {
   if (loadingChannels) return <Spinner />
   if (errorChannels) return <Alert />
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSavePaymentMethod = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     const name = value.split('|')[0]
     const code = value.split('|')[1]
     const minimumAmount = Number(value.split('|')[2]) || 1
 
-    // Save payment method
     dispatch(savePaymentMethod({ name, code, minimumAmount }))
     toast.success('Payment method have been updated')
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCreateOrder = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
-      const { order } = await createOrder(cart).unwrap()
+      const { order } = await createOrder(cart).unwrap() as { order: Order }
+      toast.success('Order have been created')
       
       startTransition(() => {
         dispatch(clearCart(null))
-        toast.success('Order have been created')
         router.push(`/orders/${order.id}`)
       })
     } catch (error: any) {
-      toast.error(error.data.message)
+      toast.error(error?.data?.message || 'Something went wrong')
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleCreateOrder}>
       {channels.map(channel => (
         <section key={channel.code} className="mb-4">
-        <h5 className={styles.subSectionTitle}>{channel.name}</h5>
-        <div className="row mb-5">
-          {channel.paymentMethods.map(method => (
-            <label key={method.code} className='col-4 py-4'>
-              <input 
-                className='form-check-input me-3' 
-                type='radio' 
-                name='paymentMethod' 
-                value={`${method.name}|${method.code}|${method.minimumAmount}`}
-                onChange={handleChange}
-                checked={method.code === paymentMethod.code}
-              />
-              <img src={method.image} alt={method.name} title={method.name} />
-            </label>
-          ))}
-        </div>
-      </section>
+          <h5 className={styles.subSectionTitle}>{channel.name}</h5>
+          <div className="row mb-5">
+            {channel.paymentMethods.map(method => (
+              <label key={method.code} className='col-4 py-4'>
+                <input 
+                  className='form-check-input me-3' 
+                  type='radio' 
+                  name='paymentMethod' 
+                  value={`${method.name}|${method.code}|${method.minimumAmount}`}
+                  onChange={handleSavePaymentMethod}
+                  checked={method.code === paymentMethod.code}
+                />
+                <img src={method.image} alt={method.name} title={method.name} />
+              </label>
+            ))}
+          </div>
+        </section>
       ))}
       <div className='mt-5 d-flex justify-content-between'>
         <BackToShippingMethodLink />

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { useSelector } from "@/lib/redux"
+import { useSelector } from "@/redux"
 import Spinner from "@/components/ui/Spinner"
 import CartItem from "@/components/cart/CartItem"
 

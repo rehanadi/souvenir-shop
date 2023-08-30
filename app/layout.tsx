@@ -4,13 +4,14 @@ import { Providers } from '@/components/layout/Providers'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/config/constants'
+import type { Metadata } from 'next'
 
 const poppins = Poppins({
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin']
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION
 }

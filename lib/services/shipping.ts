@@ -3,7 +3,7 @@ import { ORIGIN_SUBDISTRICT_ID, DESTINATION_TYPE, WEIGHT_IN_GRAMS, COURIERS } fr
 export const getProvinces = async () => {
   const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/province`, {
     headers: {
-      'key': process.env.RAJAONGKIR_API_KEY || ''
+      'key': process.env.RAJAONGKIR_API_KEY as string
     }
   })
   const data = await res.json()
@@ -17,7 +17,7 @@ export const getCities = async (provinceId: string) => {
 
   const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/city?province=${provinceId}`, {
     headers: {
-      'key': process.env.RAJAONGKIR_API_KEY || ''
+      'key': process.env.RAJAONGKIR_API_KEY as string
     }
   })
   const data = await res.json()
@@ -31,7 +31,7 @@ export const getSubdistricts = async (cityId: string) => {
 
   const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/subdistrict?city=${cityId}`, {
     headers: {
-      'key': process.env.RAJAONGKIR_API_KEY || ''
+      'key': process.env.RAJAONGKIR_API_KEY as string
     }
   })
   const data = await res.json()
@@ -55,7 +55,7 @@ export const getCouriers = async (subdistrictId: string) => {
   const res = await fetch(`${process.env.RAJAONGKIR_API_URL}/cost`, {
     method: 'POST',
     headers: {
-      'key': process.env.RAJAONGKIR_API_KEY || '',
+      'key': process.env.RAJAONGKIR_API_KEY as string,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)

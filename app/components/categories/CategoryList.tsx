@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { useGetCategoriesQuery } from "@/lib/redux"
+import { useGetCategoriesQuery } from "@/redux"
 import { Category } from "@prisma/client"
 import styles from '@/styles/categories.module.scss'
 

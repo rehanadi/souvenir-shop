@@ -64,6 +64,6 @@ export type ShippingMethod = {
 
 export enum ShippingStatus {
   PENDING = 'PENDING',
-  SUCCESS = 'SUCCESS',
+  SUCCEDED = 'SUCCEDED',
   FAILED = 'FAILED'
 }

@@ -17,7 +17,7 @@ const PaymentInfo: PaymentInfoProps = ({ order }) => {
       <div className="mt-4">
         {order.paymentStatus === PaymentStatus.PENDING ? (
           <Alert variant="info" text="Not Paid" />
-        ) : order.paymentStatus === PaymentStatus.SUCCESS ? (
+        ) : order.paymentStatus === PaymentStatus.SUCCEDED ? (
           <Alert variant="success" text={`Paid on ${order.paymentDate}`} />
         ) : (
           <Alert variant="danger" text="Fail Paid" />

@@ -4,10 +4,9 @@ import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 import CategoryProductList from "@/components/products/CategoryProductList"
-import { useGetCategoryBySlugQuery } from "@/lib/redux"
+import { useGetCategoryBySlugQuery } from "@/redux"
 import type { Category } from "@prisma/client"
 import type { BreadcumbItems } from "@/lib/types"
-import styles from '@/styles/categories.module.scss'
 
 export const metadata = {
   title: 'Category'

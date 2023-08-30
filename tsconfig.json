@@ -9,7 +9,8 @@
       "@/config/*": ["./lib/config/*"],
       "@/hooks/*": ["./lib/hooks/*"],
       "@/services/*": ["./lib/services/*"],
-      "@/utils/*": ["./lib/utils/*"]
+      "@/utils/*": ["./lib/utils/*"],
+      "@/redux": ["./lib/redux/"]
     },
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],

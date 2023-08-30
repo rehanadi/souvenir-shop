@@ -28,17 +28,17 @@ const ShippingInfo: ShippingInfoProps = ({ order }) => {
         `}
       />
       <SectionItem 
-        title='Comments:' 
-        content={shippingAddress.comments || ''} 
-      />
-      <SectionItem 
         title='Courier:' 
         content={`${order.shippingCourier} - ${order.shippingService}`} 
+      />
+      <SectionItem 
+        title='Comments:' 
+        content={shippingAddress.comments || '-'} 
       />
       <div className="mt-4">
         {order.shippingStatus === ShippingStatus.PENDING ? (
           <Alert variant="info" text="Not Delivered" />
-        ) : order.shippingStatus === ShippingStatus.SUCCESS ? (
+        ) : order.shippingStatus === ShippingStatus.SUCCEDED ? (
           <Alert variant="success" text={`Delivered on ${order.shippingDate}`} />
         ) : (
           <Alert variant="danger" text="Fail Delivered" />

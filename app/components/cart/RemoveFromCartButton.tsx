@@ -2,7 +2,7 @@
 
 import { toast } from 'react-toastify'
 import { BsTrash } from 'react-icons/bs'
-import { useDispatch, removeFromCart } from "@/lib/redux"
+import { useDispatch, removeFromCart } from "@/redux"
 import type { CartItem } from "@/lib/types"
 
 type RemoveFromCartButtonProps = React.FC<{ item: CartItem }> 

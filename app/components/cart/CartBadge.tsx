@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { useSelector } from "@/lib/redux"
+import { useSelector } from "@/redux"
 import styles from '@/styles/cart.module.scss'
 
 const CartBadge: React.FC = () => {

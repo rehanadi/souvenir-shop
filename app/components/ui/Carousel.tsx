@@ -13,6 +13,7 @@ const Carousel: React.FC = async () => {
       <div className='carousel-indicators'>
         {sliders?.map((slider, index) => (
           <button 
+            key={index}
             type='button' 
             data-bs-target='#carouselIndicators' 
             data-bs-slide-to={index} 
@@ -24,7 +25,7 @@ const Carousel: React.FC = async () => {
       </div>
       <div className='carousel-inner'>
         {sliders?.map((slider, index) => (
-          <div className={'carousel-item' + (index === 0 ? ' active' : '')}>
+          <div key={index} className={'carousel-item' + (index === 0 ? ' active' : '')}>
             <Link href={slider?.url || '#'}>
               <div className={styles.sliderImageContainer}>
                 <Image

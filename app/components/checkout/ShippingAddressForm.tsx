@@ -9,7 +9,7 @@ import {
   useGetCitiesQuery, 
   useGetSubdistrictsQuery, 
   saveShippingAddress
-} from '@/lib/redux'
+} from '@/redux'
 import { toast } from 'react-toastify'
 import type { Province, City, Subdistrict } from '@/lib/types'
 import Alert from "@/components/ui/Alert"
@@ -117,7 +117,7 @@ const ShippingAddressForm: React.FC = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSaveShippingAddress = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     // Validate shipping address
@@ -139,7 +139,7 @@ const ShippingAddressForm: React.FC = () => {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSaveShippingAddress}>
       <div className={`form-row row ${styles.formRow}`}>
         <div className='form-group col-md-6'>
           <label htmlFor='firstName'>First name <Required /></label>

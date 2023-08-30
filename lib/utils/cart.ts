@@ -1,5 +1,5 @@
 import type { Cart } from '@/lib/types'
-import { shippingMethodState } from '@/lib/redux'
+import { shippingMethodState } from '@/redux'
 
 export const addDecimals = (num: number): number => {
   return Number((Math.round(num * 100) / 100).toFixed(2))

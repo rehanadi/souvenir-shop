@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { FaMinus, FaPlus } from 'react-icons/fa'
-import { useDispatch, addToCart } from "@/lib/redux"
+import { useDispatch, addToCart } from "@/redux"
 import type { Product, CartItem } from "@/lib/types"
 import useQty from '@/hooks/useQty'
 import RemainStock from '@/components/products/RemainStock'

@@ -122,6 +122,7 @@ const seedPaymentMethods = async () => {
         name: paymentMethod.name,
         code: paymentMethod.code,
         image: paymentMethod.image,
+        provider: paymentMethod.provider,
         minimumAmount: paymentMethod.minimumAmount,
         position: paymentMethod.position,
         channel: {

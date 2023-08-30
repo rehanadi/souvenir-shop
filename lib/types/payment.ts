@@ -10,8 +10,20 @@ export type PaymentMethod = {
   minimumAmount: number
 }
 
+export type PaymentRequest = {
+  orderId: string
+  requestId?: string
+  expiryDate?: string
+  redirectURL: string
+}
+
 export enum PaymentStatus {
   PENDING = 'PENDING',
-  SUCCESS = 'SUCCESS',
+  SUCCEDED = 'SUCCEDED',
   FAILED = 'FAILED'
+}
+
+export enum PaymentProvider {
+  Xendit = 'Xendit',
+  Midtrans = 'Midtrans'
 }

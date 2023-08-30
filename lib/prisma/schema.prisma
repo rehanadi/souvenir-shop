@@ -146,6 +146,7 @@ model PaymentMethod {
   name          String
   code          String         @unique
   image         String
+  provider      String
   minimumAmount Float          @default(1) @map(name: "minimum_amount")
   position      Int            @default(1)
   channelId     String         @map(name: "channel_id")
@@ -166,7 +167,8 @@ model Order {
   shippingPrice     Float           @default(0) @map(name: "shipping_price")
   totalPrice        Float           @default(0) @map(name: "total_price")
   paymentMethodId   String          @map(name: "payment_method_id")
-  paymentResult     Json?           @default("{}") @map(name: "payment_result")
+  paymentRequest    Json?           @default("{}") @map(name: "payment_request")
+  paymentResponse   Json?           @default("{}") @map(name: "payment_response")
   paymentStatus     String          @default("PENDING") @map(name: "payment_status")
   paymentDate       DateTime?       @map(name: "payment_date")
   shippingAddressId String          @unique @map(name: "shipping_address_id")

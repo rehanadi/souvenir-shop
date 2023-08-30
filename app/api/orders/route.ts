@@ -7,7 +7,8 @@ export async function POST(request: NextRequest) {
     const order = await createOrder(cart)
     
     return NextResponse.json({ order }, { status: 200 })
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 })
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error'
+    return NextResponse.json({ message: errorMessage }, { status: 400 })
   }
 }

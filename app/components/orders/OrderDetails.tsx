@@ -1,6 +1,6 @@
 'use client'
 
-import { useGetOrderByIdQuery } from "@/lib/redux"
+import { useGetOrderByIdQuery } from "@/redux"
 import type { Order } from "@/lib/types"
 import Spinner from "@/components/ui/Spinner"
 import Alert from "@/components/ui/Alert"

@@ -1,6 +1,6 @@
 'use client'
 
-import { useGetProductsQuery } from '@/lib/redux'
+import { useGetProductsQuery } from '@/redux'
 import type { Product } from '@/lib/types'
 import ProductItem from '@/components/products/ProductItem'
 

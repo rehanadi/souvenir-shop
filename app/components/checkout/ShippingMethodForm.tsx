@@ -7,7 +7,7 @@ import {
   useSelector, 
   useGetCouriersQuery, 
   saveShippingMethod 
-} from "@/lib/redux"
+} from "@/redux"
 import { toast } from 'react-toastify'
 import Alert from "@/components/ui/Alert"
 import Spinner from '@/components/ui/Spinner'
@@ -57,7 +57,7 @@ const ShippingMethodForm: React.FC = () => {
   if (isLoading) return <Spinner />
   if (error) return <Alert />
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSaveShippingMethod = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
     const courier = value.split('|')[0]
     const service = value.split('|')[1]
@@ -68,7 +68,7 @@ const ShippingMethodForm: React.FC = () => {
     toast.success('Shipping method have been updated')
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleGoToPaymentMethod = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (!shippingMethod.courier) {
@@ -82,38 +82,42 @@ const ShippingMethodForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleGoToPaymentMethod}>
       {couriers.map(courier => (
-        <section key={courier.code} className="mb-4">
-          <h5 className={styles.subSectionTitle}>{courier.name}</h5>
-          <div className='list-group list-group-flush'>
-            {courier.costs.map(service => (
-              <label key={service.service} className='list-group-item'>
-                {service.cost.map((cost, index) => (
-                  <span key={index} className="d-flex justify-content-between">
-                    <span>
-                      <input 
-                        className='form-check-input me-2' 
-                        type='radio' 
-                        name='shippingMethod' 
-                        value={`${courier.code.toUpperCase()}|${service.service}|${cost.value}`}
-                        onChange={handleChange}
-                        checked={
-                          shippingMethod.courier === courier.code.toUpperCase() &&
-                          shippingMethod.service === service.service
-                        }
-                      />
-                      {` ${formatCourier(courier.code, service.service, cost.etd)}`}
-                    </span>
-                    <span>
-                      {formatPrice(cost.value)}
-                    </span>
-                  </span>
+        <span key={courier.code}>
+          {courier.costs.length > 0 && (
+            <section key={courier.code} className="mb-4">
+              <h5 className={styles.subSectionTitle}>{courier.name}</h5>
+              <div className='list-group list-group-flush'>
+                {courier.costs.map(service => (
+                  <label key={service.service} className='list-group-item'>
+                    {service.cost.map((cost, index) => (
+                      <span key={index} className="d-flex justify-content-between">
+                        <span>
+                          <input 
+                            className='form-check-input me-2' 
+                            type='radio' 
+                            name='shippingMethod' 
+                            value={`${courier.code.toUpperCase()}|${service.service}|${cost.value}`}
+                            onChange={handleSaveShippingMethod}
+                            checked={
+                              shippingMethod.courier === courier.code.toUpperCase() &&
+                              shippingMethod.service === service.service
+                            }
+                          />
+                          {` ${formatCourier(courier.code, service.service, cost.etd)}`}
+                        </span>
+                        <span>
+                          {formatPrice(cost.value)}
+                        </span>
+                      </span>
+                    ))}
+                  </label>
                 ))}
-              </label>
-            ))}
-          </div>
-        </section>
+              </div>
+            </section>
+          )}
+        </span>
       ))}
       <div className='mt-5 d-flex justify-content-between'>
         <BackToShippingAddressLink />
