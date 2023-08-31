@@ -8,9 +8,11 @@ import { useGetCategoryBySlugQuery } from "@/redux"
 import type { Category } from "@prisma/client"
 import type { BreadcumbItems } from "@/lib/types"
 
+/*
 export const metadata = {
   title: 'Category'
 }
+*/
 
 type CategoryPageProps = React.FC<{ params: { slug: string } }>
 

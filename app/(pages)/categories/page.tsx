@@ -1,6 +1,5 @@
 import CategoryList from "@/components/categories/CategoryList"
 import Breadcrumb from "@/components/ui/Breadcrumb"
-import styles from '@/styles/categories.module.scss'
 
 export const metadata = {
   title: 'Categories'
