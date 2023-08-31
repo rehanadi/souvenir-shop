@@ -13,6 +13,7 @@ export const SHIPPING_URL: string = '/api/shipping'
 export const PAYMENT_URL: string = '/api/payment'
 export const ORDERS_URL: string = '/api/orders'
 export const MIDTRANS_PAYMENT_LINK_URL: string = '/v1/payment-links'
+export const MIDTRANS_PAYMENT_LINK_PREFIX: string = 'souvenir-shop'
 export const REVALIDATE_TIMES: number = 60
 
 // Shipping

@@ -52,5 +52,19 @@ export const createOrder = async (cart: Cart) => {
   })
 
   if (!order.id) throw new Error('Create order failed')
+
+  // Update product stock
+  /*
+  for (const item of cart.cartItems) {
+    await prisma.product.update({
+      data: {
+        usedStock: Number(prisma.product.fields.usedStock) + item.qty,
+        remainStock: Number(prisma.product.fields.remainStock) - item.qty
+      },
+      where: { id: item.id }
+    })
+  }
+  */
+
   return order
 }

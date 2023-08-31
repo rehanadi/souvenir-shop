@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useCreatePaymentRequestMutation } from '@/lib/redux'
 import { MdPayment } from 'react-icons/md'
 import { toast } from 'react-toastify'
-import type { Order, PaymentRequest } from '@/lib/types'
+import type { Order } from '@/lib/types'
 import styles from '@/styles/orders.module.scss'
 
 type PaymentButtonProps = React.FC<{ order: Order }>
@@ -18,11 +18,8 @@ const PaymentButton: PaymentButtonProps = ({ order }) => {
     e.preventDefault()
 
     try {
-      const { paymentRequest } = await createPaymentRequest(order).unwrap() as { 
-        paymentRequest: PaymentRequest
-      }
-
-      router.push(paymentRequest.redirectURL)
+      const { redirectURL } = await createPaymentRequest(order).unwrap() as { redirectURL: string }
+      router.push(redirectURL)
     } catch (error: any) {
       toast.error(error?.data?.message || 'Something went wrong')
     }

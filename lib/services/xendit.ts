@@ -1,6 +1,10 @@
-import xendit from "./client"
+import Xendit from "xendit-node"
 import type { Order } from "@/lib/types"
 import * as config from '@/config/constants'
+
+const xendit = new Xendit({
+  secretKey: process.env.XENDIT_SECRET_KEY as string
+})
 
 const { Invoice } = xendit
 const invoiceSpecificOptions = {}

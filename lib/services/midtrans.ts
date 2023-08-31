@@ -1,13 +1,43 @@
+import { MidtransClient } from 'midtrans-node-client'
 import nextBase64 from 'next-base64'
 import type { Order } from "@/lib/types"
-import { MIDTRANS_PAYMENT_LINK_URL } from "@/config/constants"
+import { MIDTRANS_PAYMENT_LINK_URL, MIDTRANS_PAYMENT_LINK_PREFIX } from "@/config/constants"
+
+const snap = new MidtransClient.Snap({
+  isProduction: process.env.NODE_ENV === 'production',
+  serverKey : process.env.MIDTRANS_SERVER_KEY as string,
+  clientKey : process.env.MIDTRANS_CLIENT_KEY as string
+});
+
+export const createTransaction = async (order: Order) => {
+  const redirectURL = await snap.createTransactionRedirectUrl({
+    payment_type: order.paymentMethod.code.toLowerCase(),
+    transaction_details: {
+      order_id: order.id,
+      gross_amount: order.totalPrice
+    },
+    customer_details: {
+      first_name: order.shippingAddress.firstName,
+      last_name: order.shippingAddress.lastName,
+      email: order.user.email,
+      phone: order.shippingAddress.phone,
+      billing_address:  {
+        address: order.shippingAddress.address,
+        city: order.shippingAddress.city,
+        postal_code: order.shippingAddress.postalCode
+      }
+    }
+  })
+
+  return { redirectURL }
+}
 
 export const createPaymentLink = async (order: Order) => {
   const body = {
     transaction_details: {
       order_id: order.id,
       gross_amount: order.totalPrice,
-      payment_link_id: `souvenir-shop-${order.id}`
+      payment_link_id: `${MIDTRANS_PAYMENT_LINK_PREFIX}-${order.id}`
     },
     customer_required: false,
     usage_limit:  1,

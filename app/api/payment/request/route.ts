@@ -5,9 +5,9 @@ import { createPaymentRequest } from '@/services/payment'
 export async function POST(request: NextRequest) {
   try {
     const order = await request.json() as Order
-    const paymentRequest = await createPaymentRequest(order)
+    const redirectURL = await createPaymentRequest(order)
     
-    return NextResponse.json({ paymentRequest }, { status: 200 })
+    return NextResponse.json({ redirectURL }, { status: 200 })
   } catch (err: any) {
     return NextResponse.json({ message: err.message }, { status: 400 })
   }
