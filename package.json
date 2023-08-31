@@ -6,7 +6,8 @@
     "start": "next start",
     "data:migrate": "prisma migrate dev --name migrate",
     "data:seed": "prisma db seed",
-    "data:generate": "prisma generate"
+    "data:generate": "prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
