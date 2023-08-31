@@ -6,9 +6,11 @@ import CheckoutBreadcrumb from '@/components/checkout/CheckoutBreadcrumb'
 import OrderSummary from '@/components/checkout/OrderSummary'
 import styles from '@/styles/checkout.module.scss'
 
+/*
 export const metadata = {
   title: 'Checkout'
 }
+*/
 
 const CheckoutLayout: React.FC<React.PropsWithChildren> = async ({ children }) => {
   const session = await getServerSession(authOptions)

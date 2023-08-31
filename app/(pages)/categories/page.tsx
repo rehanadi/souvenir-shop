@@ -1,9 +1,11 @@
 import CategoryList from "@/components/categories/CategoryList"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
+/*
 export const metadata = {
   title: 'Categories'
 }
+*/
 
 const CategoriesPage: React.FC = () => {
   const breadcrumbItems = [{

@@ -2,9 +2,11 @@ import ShippingAddressForm from '@/components/checkout/ShippingAddressForm'
 import CustomerInfo from '@/components/checkout/CustomerInfo'
 import styles from '@/styles/checkout.module.scss'
 
+/*
 export const metadata = {
   title: 'Shipping Address'
 }
+*/
 
 const ShippingAddressPage: React.FC = () => {
   return (

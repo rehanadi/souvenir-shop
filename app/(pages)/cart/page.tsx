@@ -2,11 +2,12 @@ import { Suspense } from "react"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 import CartList from "@/components/cart/CartList"
 import CartTotal from "@/components/cart/CartTotal"
-import styles from '@/styles/cart.module.scss'
 
+/*
 export const metadata = {
   title: 'Cart'
 }
+*/
 
 const CartPage: React.FC = () => {
   const breadcrumbItems = [{

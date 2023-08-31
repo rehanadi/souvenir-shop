@@ -1,10 +1,11 @@
 import ProductList from "@/components/products/ProductList"
 import Breadcrumb from "@/components/ui/Breadcrumb"
-import styles from '@/styles/products.module.scss'
 
+/*
 export const metadata = {
   title: 'Products'
 }
+*/
 
 const ProductsPage: React.FC = () => {
   const breadcrumbItems = [{

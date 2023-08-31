@@ -1,9 +1,11 @@
 import ShippingMethodForm from '@/components/checkout/ShippingMethodForm'
 import styles from '@/styles/checkout.module.scss'
 
+/*
 export const metadata = {
   title: 'Shipping Method'
 }
+*/
 
 const ShippingMethodPage: React.FC = () => {
   return (

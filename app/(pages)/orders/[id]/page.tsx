@@ -2,9 +2,11 @@ import OrderDetails from "@/components/orders/OrderDetails"
 import OrderSummary from "@/components/orders/OrderSummary"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
+/*
 export const metadata = {
   title: 'Order'
 }
+*/
 
 type OrderPageProps = React.FC<{ params: { id: string } }>
 
