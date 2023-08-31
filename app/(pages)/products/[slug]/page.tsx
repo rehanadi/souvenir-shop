@@ -14,12 +14,6 @@ import CategoryLinks from '@/components/categories/CategoryLinks'
 import Rating from '@/components/products/Rating'
 import AddProductToCart from '@/components/products/AddProductToCart'
 
-/*
-export const metadata = {
-  title: 'Product'
-}
-*/
-
 type ProductPageProps = React.FC<{ params: { slug: string } }>
 
 const ProductPage: ProductPageProps = ({ params: { slug } }) => {
