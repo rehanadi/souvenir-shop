@@ -1,11 +1,10 @@
 import { MidtransClient } from 'midtrans-node-client'
 import nextBase64 from 'next-base64'
 import type { Order } from "@/lib/types"
-import { MIDTRANS_PAYMENT_LINK_URL, MIDTRANS_PAYMENT_LINK_PREFIX } from "@/config/constants"
+import * as config from "@/config/constants"
 
 const snap = new MidtransClient.Snap({
-  // isProduction: process.env.NODE_ENV === 'production',
-  isProduction: false,
+  isProduction: config.PAYMENT_PRODUCTION,
   serverKey : process.env.MIDTRANS_SERVER_KEY as string,
   clientKey : process.env.MIDTRANS_CLIENT_KEY as string
 });
@@ -38,7 +37,7 @@ export const createPaymentLink = async (order: Order) => {
     transaction_details: {
       order_id: order.id,
       gross_amount: order.totalPrice,
-      payment_link_id: `${MIDTRANS_PAYMENT_LINK_PREFIX}-${order.id}`
+      payment_link_id: `${config.MIDTRANS_PAYMENT_LINK_PREFIX}-${order.id}`
     },
     customer_required: false,
     usage_limit:  1,
@@ -70,7 +69,7 @@ export const createPaymentLink = async (order: Order) => {
 
   const AUTH_STRING = nextBase64.encode(`${process.env.MIDTRANS_SERVER_KEY}:`)
 
-  const res = await fetch(`${process.env.MIDTRANS_API_URL}/${MIDTRANS_PAYMENT_LINK_URL}`, {
+  const res = await fetch(`${process.env.MIDTRANS_API_URL}/${config.MIDTRANS_PAYMENT_LINK_URL}`, {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {

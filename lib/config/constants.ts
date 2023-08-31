@@ -26,7 +26,8 @@ export const COURIERS: string = 'jne:pos:tiki:sicepat'
 // Payment
 
 export const CURRENCY: string = 'IDR'
-export const SUCCESS_REDIRECT_URL: string = 'http://localhost:3000/orders'
-export const FAILURE_REDIRECT_URL: string = 'http://localhost:3000/orders'
+export const SUCCESS_REDIRECT_URL: string = `${process.env.NEXTAUTH_URL}/orders`
+export const FAILURE_REDIRECT_URL: string = `${process.env.NEXTAUTH_URL}/orders`
 export const SHOULD_SEND_EMAIL: boolean = true
 export const PAYMENT_DESCRIPTION: string = 'Invoice for Souvenir Shop'
+export const PAYMENT_PRODUCTION: boolean = false
