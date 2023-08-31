@@ -4,7 +4,8 @@ import type { Order } from "@/lib/types"
 import { MIDTRANS_PAYMENT_LINK_URL, MIDTRANS_PAYMENT_LINK_PREFIX } from "@/config/constants"
 
 const snap = new MidtransClient.Snap({
-  isProduction: process.env.NODE_ENV === 'production',
+  // isProduction: process.env.NODE_ENV === 'production',
+  isProduction: false,
   serverKey : process.env.MIDTRANS_SERVER_KEY as string,
   clientKey : process.env.MIDTRANS_CLIENT_KEY as string
 });
