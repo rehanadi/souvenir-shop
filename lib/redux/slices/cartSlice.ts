@@ -79,11 +79,9 @@ const cartSlice = createSlice({
       return updateCart(state)
     },
     clearCart: (state, action) => {
-      const shippingAddress = state.shippingAddress
-      
+      const shippingAddress = { ...state.shippingAddress, comments: '' } as ShippingAddress
       state = cartState
       state.shippingAddress = shippingAddress
-      state.shippingAddress.comments = ''
 
       return updateCart(state)
     }
