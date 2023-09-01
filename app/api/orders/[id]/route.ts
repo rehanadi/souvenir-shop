@@ -1,6 +1,7 @@
 import { type NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { getOrderById } from '@/services/orders'
+import { errorMessage } from '@/utils/error'
 
 export async function GET(
   request: NextRequest, 
@@ -11,7 +12,7 @@ export async function GET(
     const order = await getOrderById(id)
     
     return NextResponse.json({ order }, { status: 200 })
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 })
+  } catch (err) {
+    return NextResponse.json({ message: errorMessage(err) }, { status: 400 })
   }
 }

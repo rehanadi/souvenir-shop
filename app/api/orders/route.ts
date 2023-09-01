@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { createOrder } from '@/services/orders'
+import { errorMessage } from '@/utils/error'
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,7 +9,6 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json({ order }, { status: 200 })
   } catch (err) {
-    const errorMessage = err instanceof Error ? err.message : 'Unknown error'
-    return NextResponse.json({ message: errorMessage }, { status: 400 })
+    return NextResponse.json({ message: errorMessage(err) }, { status: 400 })
   }
 }

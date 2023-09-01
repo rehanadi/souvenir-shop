@@ -75,13 +75,17 @@ const PaymentMethodForm: React.FC = () => {
 
     try {
       const { order } = await createOrder(cart).unwrap() as { order: Order }
+      console.log('order:', order)
       toast.success('Order have been created')
+      dispatch(clearCart(null))
+      console.log('masuk1')
       
       startTransition(() => {
-        dispatch(clearCart(null))
+        console.log('masuk2', order.id)
         router.push(`/orders/${order.id}`)
       })
     } catch (error: any) {
+      console.error(error)
       toast.error(error?.data?.message || 'Something went wrong')
     }
   }

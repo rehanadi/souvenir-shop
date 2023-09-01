@@ -37,7 +37,7 @@ export const createPaymentLink = async (order: Order) => {
     transaction_details: {
       order_id: order.id,
       gross_amount: order.totalPrice,
-      payment_link_id: `${config.MIDTRANS_PAYMENT_LINK_PREFIX}-${order.id}`
+      payment_link_id: `${config.PAYMENT_LINK_PREFIX}-${order.id}`
     },
     customer_required: false,
     usage_limit:  1,
@@ -69,7 +69,7 @@ export const createPaymentLink = async (order: Order) => {
 
   const AUTH_STRING = nextBase64.encode(`${process.env.MIDTRANS_SERVER_KEY}:`)
 
-  const res = await fetch(`${process.env.MIDTRANS_API_URL}/${config.MIDTRANS_PAYMENT_LINK_URL}`, {
+  const res = await fetch(`${process.env.MIDTRANS_API_URL}/${config.PAYMENT_LINK_URL}`, {
     method: 'POST',
     body: JSON.stringify(body),
     headers: {

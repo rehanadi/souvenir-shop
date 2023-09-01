@@ -12,8 +12,6 @@ export const USERS_URL: string = '/api/users'
 export const SHIPPING_URL: string = '/api/shipping'
 export const PAYMENT_URL: string = '/api/payment'
 export const ORDERS_URL: string = '/api/orders'
-export const MIDTRANS_PAYMENT_LINK_URL: string = '/v1/payment-links'
-export const MIDTRANS_PAYMENT_LINK_PREFIX: string = 'souvenir-shop'
 export const REVALIDATE_TIMES: number = 60
 
 // Shipping
@@ -31,3 +29,5 @@ export const FAILURE_REDIRECT_URL: string = `${process.env.NEXTAUTH_URL}/orders`
 export const SHOULD_SEND_EMAIL: boolean = true
 export const PAYMENT_DESCRIPTION: string = 'Invoice for Souvenir Shop'
 export const PAYMENT_PRODUCTION: boolean = false
+export const PAYMENT_LINK_URL: string = '/v1/payment-links'
+export const PAYMENT_LINK_PREFIX: string = 'souvenir-shop'

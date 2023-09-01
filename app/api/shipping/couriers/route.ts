@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { getCouriers } from '@/services/shipping'
+import { errorMessage } from '@/utils/error'
 
 export async function GET(request: NextRequest) {
   try {
@@ -8,7 +9,7 @@ export async function GET(request: NextRequest) {
     const couriers = await getCouriers(subdistrictId)
     
     return NextResponse.json({ couriers }, { status: 200 })
-  } catch (error: any) {
-    return NextResponse.json({ message: error.message }, { status: 400 })
+  } catch (err) {
+    return NextResponse.json({ message: errorMessage(err) }, { status: 400 })
   }
 }
