@@ -2,7 +2,6 @@ import { Suspense } from "react"
 import TopProductList from "@/components/products/TopProductList"
 import Spinner from "@/components/ui/Spinner"
 import Carousel from "@/components/ui/Carousel"
-import styles from '@/styles/layout.module.scss'
 
 export default function IndexPage() {
   return (

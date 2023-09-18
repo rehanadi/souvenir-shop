@@ -20,8 +20,37 @@
 
 .sliderImageContainer {
   position: relative;
-  min-height: 85vh;
+  height: 31rem;
   width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+  .sliderImageContainer {
+    height: 25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sliderImageContainer {
+    height: 20rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sliderImageContainer {
+    height: 15rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .sliderImageContainer {
+    height: 12rem;
+  }
+}
+
+.sliderImageContainer img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .sliderCaption {

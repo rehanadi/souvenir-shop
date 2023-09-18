@@ -12,7 +12,7 @@ type CartItemProps = React.FC<{ item: CartItem }>
 const CartItem: CartItemProps = ({ item }) => {
   return (
     <div className="row my-1">
-      <div className="col-2">
+      <div className={`col-4 col-md-2 ${styles.cartImage}`}>
         <Link href={`/products/${item?.slug}`}>
           <div className={styles.itemImageContainer}>
             <Image 
@@ -26,16 +26,16 @@ const CartItem: CartItemProps = ({ item }) => {
           </div>
         </Link>
       </div>
-      <div className="col-3">
+      <div className="col-8 col-md-3">
         <Link className='text-success' href={`/products/${item?.slug}`}>
           {item?.name}
         </Link>
       </div>
-      <div className="col-2">{formatPrice(item?.price)}</div>
-      <div className="col-3">
+      <div className="col-4 col-md-2">{formatPrice(item?.price)}</div>
+      <div className="col-6 col-md-3">
         <CartItemQty item={item} />
       </div>
-      <div className="col-1">
+      <div className="col-2 col-md-1">
         <RemoveFromCartButton item={item} />
       </div>
     </div>

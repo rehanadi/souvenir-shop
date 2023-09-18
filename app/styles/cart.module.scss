@@ -33,3 +33,14 @@
   max-width: 6rem;
   min-height: 6rem;
 }
+
+.itemImageContainer img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cartImage {
+    margin-bottom: 1rem;
+  } 
+}

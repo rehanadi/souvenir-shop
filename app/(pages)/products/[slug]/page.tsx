@@ -48,7 +48,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
       <Breadcrumb items={breadcrumbItems} />
       <div className='wrapper'>
         <div className="row">
-          <div className="col-5">
+          <div className="col-md-5 mb-5">
             <div className={styles.fullImageContainer}>
               <Image
                 fill
@@ -61,7 +61,7 @@ const ProductPage: ProductPageProps = ({ params: { slug } }) => {
               />
             </div>
           </div>
-          <div className="col-7">
+          <div className="col-md-7">
             <ul className='list-group list-group-flush'>
               <li className='list-group-item'><h1>{product?.name}</h1></li>
               <li className='list-group-item'>

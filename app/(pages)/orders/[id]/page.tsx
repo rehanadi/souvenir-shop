@@ -28,10 +28,10 @@ const OrderPage: OrderPageProps = ({ params: { id } }) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-9">
+          <div className="col-lg-9">
             <OrderDetails id={id} />
           </div>
-          <div className="col-3">
+          <div className="col-lg-3">
             <OrderSummary id={id} />
           </div>
         </div>
